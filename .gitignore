@@ -1,0 +1,10 @@
+#이인희 개인적인 파일들
+desktop.ini
+해결과제_이인희_0720.txt
+.vscode/settings.json
+#__pycache__
+**/__pycache__/
+
+#가상환경
+myvenv/
+/alongalone/accountapp/__pycache__

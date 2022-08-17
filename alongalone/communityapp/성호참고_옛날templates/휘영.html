@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static './img/favicon.png' %}">
+
+
+    <!-- css -->
+    <link rel="stylesheet" href="{% static './style.css'}">
+    <!-- <link rel="stylesheet" href="./css/screen/detail/newdetailpost.css"> -->
+
+    d
+
+    <title>detailpost</title>
+</head>
+
+<body>
+
+    <!-- header -->
+    <header>
+
+        <div class="header-col">
+            <img class="header-logo" src="{% static 'img/logowhite.PNG' %}">
+    <div class="header-title">
+        <span>along</span>
+        <span>alone</span>
+    </div>
+
+    </div>
+
+    <div class="header-col">
+        <a href="{% url 'index' %}">혼밥</a>
+        <a href="{% url 'honsul' %}">혼술</a>
+        <a href="{% url 'honcafe' %}">혼카페</a>
+        <a href="{% url 'honnol' %}">혼놀</a>
+    </div>
+
+    <span class="header-col-bar">
+        <div class="header-bar"></div>
+        <input class="header-bar-search" type="text">
+
+        <img src="{% static 'img/scrap.png' %}" alt="">
+        <img src="{% static 'img/alarm.png' %}" alt="">
+
+        {% block myprofile %}
+
+        {% endblock %}
+
+    </span>
+
+
+    </header>
+
+
+    <!-- main post box -->
+    <div id="post_box">
+
+        <div class="total_post_btn"><i class="fa-solid fa-chevron-left"></i>전체 게시물 보기</div>
+
+
+
+
+
+
+        <div class="contents_wrap">
+            <!-- left content -->
+            <div class="left_box">
+                <!-- B : 여기(h1)에 게시물 제목이 와야 함!!! -->
+                <h1>수성구 상무 초밥 혼밥 후기 게시물 제목</h1>
+                <!-- B : h5에 작성 날짜가 와야 함 -->
+                <h5>작성 날짜</h5>
+                <!-- B : p에 게시물 내용 와야 함 -->
+                <p>게시물내용 게시물내용 게시물내용 게시물내용
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic odit quia minus pariatur consequatur
+                    alias
+                    temporibus omnis cumque velit quis. Consectetur eos voluptates incidunt debitis expedita ipsum
+                    adipisci
+                    fuga sit.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus tenetur ipsum commodi libero
+                    molestias! Placeat nemo culpa adipisci magni. Voluptates, dicta est mollitia ut aut provident! Totam
+                    temporibus magnam similique!
+                </p>
+
+                <!-- B : detail_post_img의 src에 게시물 상세 이미지가 와야 함 -->
+                <img class="detail_post_img" src="" alt="">
+
+                <!-- B : 해당 게시물의 장소가 와야 함 -->
+                <!-- B : detail_location_col 자식요소인 h4에 주소, h5에 운영시간-->
+                <div class="detail_location">
+                    <span class="detail_location_col"><i class="fa-solid fa-location-dot fa-2x"></i></span>
+                    <span class="detail_location_col">
+                        <h4>대구광역시 북구 대학로 24번길</h4>
+                        <h5>9:00 ~ 22:00</h5>
+                        <!-- popup 생성 해야함!!!!!!!! -->
+                    </span>
+
+                </div>
+
+
+
+
+                <!-- right content -->
+
+            </div>
+
+            <!-- 세로 선 border -->
+            <div class="border"></div>
+
+            <!-- right content -->
+            <div class="right_box">
+                <h3>수민님의 다른 게시물</h3>
+                <!-- B : 해당 유저의 다른 게시글을 띄워야 함 -->
+                <div class="another_post">
+                    <span class="another_post_title">게시글 제목</span>
+                    <span class="another_post_space">장소</span>
+                </div>
+
+                <div class="another_post">
+                    <span class="another_post_title">게시글 제목</span>
+                    <span class="another_post_space">장소</span>
+                </div>
+
+                <div class="another_post">
+                    <span class="another_post_title">게시글 제목</span>
+                    <span class="another_post_space">장소</span>
+                </div>
+
+
+                <!-- 가로 border -->
+                <div class="width_border"></div>
+
+
+                <!-- 새싹 후원하기 -->
+                <!-- B : 후원금 계산 적용  -->
+                <div class="support_box">
+
+                    <h4>추가 후원금 (선택) </h4>
+                    <input type="number">
+
+                    <button>+1천원</button>
+                    <button>+5천원</button>
+                    <button>+1만원</button>
+                    <button>후원하기</button>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- CSS -->
+    <style>
+        body {
+            justify-content: center;
+        }
+
+        #post_box {
+            border: 1px solid white;
+            width: 90%;
+            height: 800px;
+            margin: 40px;
+            margin-top: 100px;
+
+
+            /* inner 요소들 이 간격 보고 맞추기!! */
+            padding-left: 80px;
+            padding-right: 60px;
+
+        }
+
+        .contents_wrap {
+            display: flex;
+        }
+
+        /* 전체 게시물 보기 */
+        .total_post_btn {
+            box-sizing: border-box;
+            width: 100%;
+            height: 20px;
+            color: aliceblue;
+            background-color: lightslategray;
+        }
+
+        /* 세로 선 border */
+        .border {
+            width: 2px;
+            height: 700px;
+            background-color: aliceblue;
+            position: relative;
+            left: 870px;
+            top: 15px;
+        }
+
+        /* 왼쪽 컨텐츠 */
+        .left_box {
+
+            margin-left: 0;
+            width: 60%;
+            background-color: aquamarine;
+        }
+
+
+        /* 게시물 제목 */
+        h1 {
+
+            font-size: 40px;
+            background-color: beige;
+            margin-top: 40px;
+        }
+
+        img.detail_post_img {
+            height: 200px;
+            background-color: antiquewhite;
+        }
+
+        /* right contents */
+        .right_box {
+            background-color: lightgray;
+            width: 30%;
+        }
+
+        .another_post {
+            box-sizing: border-box;
+            width: 350px;
+            height: 100px;
+            background-color: aqua;
+            margin: 10px 30px;
+        }
+
+        /* 가로 border */
+        .width_border {
+            border: 1px solid white;
+            margin: 0px 30px;
+        }
+
+        /* 후원 관련 */
+        .support_box {
+            width: 350px;
+            height: 250px;
+            border: 1px solid black;
+            margin: 30px;
+            background-color: lightpink;
+        }
+    </style>
+
+
+    <!— icon link —>
+    <script src="https://kit.fontawesome.com/73b35ca8d6.js" crossorigin="anonymous"></script>
+    </body>
+
+</html>

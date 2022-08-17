@@ -1,0 +1,14 @@
+{% extends 'board_detail_base.html' %}
+{% load static %}
+
+{% block detail_style %}
+<link rel="stylesheet" href="{% static 'css/screen/detail/honcafedetail.css' %}">
+{% endblock %}
+
+{% block detail_h1 %}
+<h1>혼카페</h1>
+{% endblock %}
+
+{% block write_button %}
+<a href="{% url 'honcafewrite' %}">
+{% endblock %}

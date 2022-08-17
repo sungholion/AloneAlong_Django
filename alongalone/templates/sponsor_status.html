@@ -1,0 +1,40 @@
+{% extends "board_main_base.html" %}
+
+{% block title %}sponsor_status{% endblock title %}
+{% block css %}
+   <link rel="stylesheet" href="/static/css/screen/sponsor/sponsor.css">
+   <link rel="stylesheet" href="/static/css/screen/sponsor/honbab_.css">
+{% endblock css %}
+    
+{% block body %}
+<!-- 검은색 배경 네모 -->
+    <div class="content">
+        <h1>{{user.username}}의 이용 정보</h1>
+        <div class="howmany">
+          <img src="/static/img/saessak.png" alt="" />
+          <div class="textbox" style="margin-top: 15px;">
+            <p>보유 중인 새싹</p>
+            <!-- B : 보유 중인 새싹 계산 -->
+            <p style="color: rgba(204, 249, 197, 1)">{{user.cash}}</p>
+            <p>잎</p>
+          </div>
+        </div>
+
+        <div class="category">
+            <a>후원현황</a>
+            <a href="{% url 'sponsor' %}">충전하기</a><br>
+        </div>
+        <hr>
+
+        <div class="letter">
+            <img src="/static/img/logo_sp.png" alt="">
+            <h4>후원 현황 및 후원 이벤트 참여 내역을</h4>
+            <p>확인할 수 있는 상세 페이지를 준비중입니다.</p>
+            <p>빠른 시일 내에 서비스 할 수 있도록 노력하겠습니다.</p>
+            <p style="font-size:16px">감사합니다. (주)alone along 일동</p>
+
+        </div>
+
+    </div>
+
+{% endblock body %}

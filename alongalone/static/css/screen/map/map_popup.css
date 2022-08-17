@@ -1,0 +1,407 @@
+/* 지도 팝업 */
+
+#popup {
+    width: 1166px;
+    height: 814px;
+    z-index: 3;
+    position: absolute;
+    left: 173px;
+    top: 0px;
+    font-size: 14px;
+    background: rgb(28, 24, 24);
+    border: 1px solid #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+.popup_map {
+    width: 100%;
+}
+
+/* 현재위치 */
+.location {
+    margin-top: 36px;
+    margin-left: 46px;
+    height: 100%;
+}
+
+.location.title {
+    width: 10%;
+    float: left;
+    display: flex;
+    box-sizing: border-box;
+
+    margin: 0;
+
+    font-family: 'Noto Sans HK';
+    font-style: normal;
+    font-weight: 350;
+    font-size: 25px;
+    line-height: 22px;
+    /* or 88% */
+
+    letter-spacing: 0.5em;
+
+    color: #FFFFFF;
+}
+
+.location.text {
+    width: 90%;
+    display: flex;
+    float: right;
+    box-sizing: border-box;
+
+    margin: 0;
+    font-family: 'Noto Sans HK';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 22px;
+
+    letter-spacing: 0.1em;
+
+    color: #FFFFFF;
+}
+
+/* 선 */
+.line {
+    width: 1100px;
+    height: 0px;
+
+    border: 2px solid rgba(153, 153, 153, 0.99);
+    margin: 19px 0 41px 33px;
+}
+
+/* 내용물 */
+.contentbox {
+    margin-left: 20px;
+    height: 100%;
+}
+
+.contentbox.left {
+    width: 40%;
+    /* width: 665px; */
+    float: left;
+    box-sizing: border-box;
+}
+
+.contentbox.right {
+    width: 43%;
+    float: right;
+    box-sizing: border-box;
+}
+
+/* 지도 */
+.map {
+    box-sizing: border-box;
+    width: 580px;
+    height: 476px;
+
+    background-color: antiquewhite;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    margin: 0;
+}
+
+/* honbab box */
+
+.honbab_box {
+    width: 580px;
+    height: 156px;
+    background-color: var(--mint);
+    border-radius: 10px;
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.box_title {
+    display: flex;
+    padding: 16px 0 5px 21px;
+    margin-bottom: 20px;
+}
+
+
+.box_text_wrap {
+    padding: 0;
+    margin: 0;
+}
+
+.box_name {
+    font-family: 'Noto Sans HK';
+    font-style: normal;
+    font-weight: 350;
+    font-size: 25px;
+    line-height: 22px;
+
+    letter-spacing: 0.1em;
+
+    color: rgba(10, 10, 10, 0.95);
+    padding-bottom: 7px;
+}
+
+.box_content_name {
+    font-family: 'Noto Sans HK';
+    font-style: normal;
+    font-weight: 350;
+    font-size: 16px;
+    line-height: 22px;
+
+    letter-spacing: 0.1em;
+
+    color: rgba(10, 10, 10, 0.95);
+    margin-top: 10px;
+}
+
+
+.box_info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* 수정 */
+    margin-top: 5px;
+}
+
+.box_info_map_wrap {
+    padding-left: 21px;
+}
+
+.box_info_icon_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 40px;
+    position: relative;
+}
+
+.box_info_icon_wrap i {
+    width: 20px;
+    margin: 10px;
+}
+
+.box_info_icon_wrap .fa-heart:hover {
+    color: red;
+}
+
+.box_info_icon_wrap .fa-comment:hover {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.honnol_review_title {
+    font-family: 'Noto Sans HK';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 22px;
+
+    letter-spacing: 0.1em;
+
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+.mini_line {
+    width: 551px;
+    height: 0px;
+    margin: 0 0 0 13px;
+
+    border: 1px solid #000000;
+}
+
+
+/* 타임라인 */
+
+hr.timeline {
+    padding: 0;
+    width: 462px;
+    height: 0px;
+    margin: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.timeline {
+    color: #fff;
+    padding: 30px 20px;
+    height: 600px;
+}
+
+.timeline ul {
+    list-style-type: none;
+    border-left: 2px solid rgba(153, 153, 153, 1);
+    padding: 5px 5px 10px 5px;
+    height: 570px;
+}
+
+.timeline ul li {
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    position: relative;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.timeline ul li span {
+    display: inline-block;
+
+    font-family: 'Noto Sans HK';
+    font-style: normal;
+    font-weight: 350;
+    font-size: 15px;
+    line-height: 22px;
+
+    letter-spacing: 0.1em;
+
+    color: #FFFFFF;
+
+    margin: 0;
+    background-color: transparent;
+}
+
+.timeline ul li content {
+    margin: 0;
+    width: 404px;
+    height: 113px;
+    
+    background: #F5F5F5;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+.timeline ul li .content h3 {
+    font-family: 'Noto Sans HK';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 22px;
+    letter-spacing: 0.1em;
+
+    color: #FFFFFF;
+    padding-top: 5px;
+    margin-top: 5px;
+}
+
+.timeline ul li .content p {
+    font-family: 'Noto Sans HK';
+    font-style: normal;
+    font-weight: 350;
+    font-size: 13px;
+    line-height: 22px;
+    letter-spacing: 0.1em;
+
+    color: #FFFFFF;
+    margin-top: 5px;
+}
+
+.timeline ul li:before {
+    position: absolute;
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    left: -11px;
+    top: 28px;
+    transition: .5s;
+}
+
+.timeline ul li:before {
+    background-color: rgba(204, 249, 197, 1)
+}
+
+
+/* honbab box */
+
+.honbab_box2 {
+    margin-top: 30px;
+    width: 404px;
+    height: 113px;
+
+    /* background: #F5F5F5; */
+    background: var(--mint);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+.box_title2 {
+    display: flex;
+}
+
+
+.box_img2 {
+    height: 48px;
+    width: 48px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 50px;
+    margin: 16px 0 0 12px;
+}
+
+.box_text_wrap2 {
+
+    margin-top: 10px;
+    margin-bottom: 0;
+    height: 50px;
+    padding: 10px;
+}
+
+.box_name2 {
+    width: 48px;
+    height: 10px;
+    
+    font-family: 'Noto Sans HK';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 22px;
+
+    letter-spacing: 0.1em;
+
+    color: rgba(10, 10, 10, 0.95);
+    margin-bottom: 14px;
+}
+
+.box_content_name2 {
+    margin-top: 5px;
+    width: 301px;
+    height: 9px;
+    
+    font-family: 'Noto Sans HK';
+    font-style: normal;
+    font-weight: 350;
+    font-size: 15px;
+    line-height: 22px;
+
+    letter-spacing: 0.1em;
+
+    color: rgba(10, 10, 10, 0.95);
+}
+
+.box_info2 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.box_info_icon_wrap2 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 40px;
+    position: relative;
+}
+
+.box_info_icon_wrap2 i {
+    width: 20px;
+    margin: 10px;
+}
+
+
+.box_info_icon_wrap2 .fa-heart:hover {
+    color: red;
+}
+
+.box_info_icon_wrap2 .fa-comment:hover {
+    color: rgba(0, 0, 0, 0.4);
+}

@@ -1,0 +1,14 @@
+<h1>혼밥 게시판 메인화면</h1>
+
+<!-- 블로그 글들의 목록을 보여줄 공간 -->
+<!-- for문 쓰는 이유 = 데이터베이스에서 객체 다 받아오면 QuerySet 자료형으로 오기 때문에 하나씩 찍어줘야 함. -->
+{% for post in posts %}
+<a href="{% url 'detail' post.id %}"><h3>제목 : {{ post.title }}</h3></a>
+<h4>카테고리 : {{ post.category }}</h3>
+<h4>작성날짜 : {{ post.date }}</h3>
+
+    {{ post.body }}
+    
+{% endfor %}
+<br><br><br>
+<a href="{% url 'modelformcreate' %}">새 글 작성</a><br>

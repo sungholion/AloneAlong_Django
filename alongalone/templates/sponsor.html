@@ -1,0 +1,195 @@
+<!--이 파일에선 base.html에 없는 줄이 20~22줄임!!!!!!!!!!!!!!!!!!!!!!-->
+{% extends "board_main_base.html" %}
+{% block title %}sponsor{% endblock title %} 
+{% block css %}
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+<link rel="stylesheet" href="/static/css/screen/sponsor/sponsor.css" />
+<link rel="stylesheet" href="/static/css/screen/sponsor/honbab_.css" />
+{% endblock css %} 
+
+{% block body %}
+
+<!-- 검은색 배경 네모 -->
+<div class="content">
+  <h1 style="color: white">{{user.username}}의 이용 정보</h1>
+  <div class="howmany">
+    <img src="/static/img/saessak.png" alt="" />
+    <div class="textbox" style="margin-top: 15px;">
+      <p>보유 중인 새싹</p>
+      <!-- B : 보유 중인 새싹 계산 -->
+      <p style="color: rgba(204, 249, 197, 1)">{{user.cash}}</p>
+      <p>잎</p>
+    </div>
+  </div>
+
+  <div class="category">
+    <a href="{% url 'sponsor_status' %}" style="color: white">후원현황</a>
+    <a style="color: white">충전하기</a><br />
+  </div>
+  <hr />
+
+  <div class="explain" style="margin-bottom: 0;">
+    <h3>새싹이란?</h3>
+    <p style="margin:0 0 0 10px;">
+      혼밥, 혼술 등 혼자인 사람들을 위한 경험 기반 콘텐츠 제작 후원에 필요한
+      전용 결제 수단입니다.
+    </p>
+  </div>
+  <br /><br />
+
+  <div class="money">
+    <div class="row" >
+      <div class="cal l" style="display: inline-block;">
+        <img src="/static/img/saessak.png" alt=""  style="display: inline-block;"/>
+        <div class="textbox" >
+          <h4 >새싹 5잎</h4>
+          <button id="alertStart">500원</button>
+        </div>
+      </div>
+      <div class="cal r">
+        <img src="/static/img/saessak.png" alt="" />
+        <div class="textbox">
+          <h4 style="padding-top: 12px;">새싹 200잎</h4>
+          <button id="alertStart1">2000원</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="cal l">
+        <img src="/static/img/saessak.png" alt="" />
+        <div class="textbox">
+          <h4 style="padding-top: 12px;">새싹 10잎</h4>
+          <button id="alertStart2">1000원</button>
+        </div>
+      </div>
+      <div class="cal r">
+        <img src="/static/img/saessak.png" alt="" />
+        <div class="textbox">
+          <h4 style="padding-top: 12px;">새싹 300잎</h4>
+          <button id="alertStart3">30000원</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="cal l">
+        <img src="/static/img/saessak.png" alt="" />
+        <div class="textbox">
+          <h4 style="padding-top: 12px;">새싹 30잎</h4>
+          <button id="alertStart4">3000원</button>
+        </div>
+      </div>
+      <div class="cal r">
+        <img src="/static/img/saessak.png" alt="" />
+        <div class="textbox">
+          <h4 style="padding-top: 12px;">새싹 500잎</h4>
+          <button id="alertStart5">50000원</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="cal l">
+        <img src="/static/img/saessak.png" alt="" />
+        <div class="textbox">
+          <h4 style="padding-top: 12px;">새싹 50잎</h4>
+          <button id="alertStart6">5000원</button>
+        </div>
+      </div>
+      <div class="cal r">
+        <img src="/static/img/saessak.png" alt="" />
+        <div class="textbox">
+          <h4 style="padding-top: 12px;">새싹 700잎</h4>
+          <button id="alertStart7">70000원</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="cal l">
+        <img src="/static/img/saessak.png" alt="" />
+        <div class="textbox">
+          <h4 style="padding-top: 12px;">새싹 100잎</h4>
+          <button id="alertStart8">10000원</button>
+        </div>
+      </div>
+      <div class="cal r">
+        <img src="/static/img/saessak.png" alt="" />
+        <div class="textbox">
+          <h4 style="padding-top: 12px;">새싹 1000잎</h4>
+          <button id="alertStart9">100000원</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // 새싹 결제 불가능 팝업
+  $().ready(function () {
+    $("#alertStart").click(function () {
+      Swal.fire({
+        icon: "warning",
+        title: "서비스 점검중입니다",
+        text: "신규 가입시 지급된 새싹을 이용해보세요!",
+      });
+    });
+    $("#alertStart1").click(function () {
+      Swal.fire({
+        icon: "warning",
+        title: "서비스 점검중입니다",
+        text: "신규 가입시 지급된 새싹을 이용해보세요!",
+      });
+    });
+    $("#alertStart2").click(function () {
+      Swal.fire({
+        icon: "warning",
+        title: "서비스 점검중입니다",
+        text: "신규 가입시 지급된 새싹을 이용해보세요!",
+      });
+    });
+    $("#alertStart3").click(function () {
+      Swal.fire({
+        icon: "warning",
+        title: "서비스 점검중입니다",
+        text: "신규 가입시 지급된 새싹을 이용해보세요!",
+      });
+    });
+    $("#alertStart4").click(function () {
+      Swal.fire({
+        icon: "warning",
+        title: "서비스 점검중입니다",
+        text: "신규 가입시 지급된 새싹을 이용해보세요!",
+      });
+    });
+    $("#alertStart5").click(function () {
+      Swal.fire({
+        icon: "warning",
+        title: "서비스 점검중입니다",
+        text: "신규 가입시 지급된 새싹을 이용해보세요!",
+      });
+    });
+    $("#alertStart6").click(function () {
+      Swal.fire({
+        icon: "warning",
+        title: "서비스 점검중입니다",
+        text: "신규 가입시 지급된 새싹을 이용해보세요!",
+      });
+    });
+    $("#alertStart7").click(function () {
+      Swal.fire({
+        icon: "warning",
+        title: "서비스 점검중입니다",
+        text: "신규 가입시 지급된 새싹을 이용해보세요!",
+      });
+    });
+    $("#alertStart8").click(function () {
+      Swal.fire({
+        icon: "warning",
+        title: "서비스 점검중입니다",
+        text: "신규 가입시 지급된 새싹을 이용해보세요!",
+      });
+    });
+  });
+</script>
+
+{% endblock body %}

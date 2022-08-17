@@ -1,0 +1,122 @@
+<!-- board_main_base.html을 공통으로 가지고, block 에 들어갈 공통되지 않는 부분들만 각 게시판 html에 적음. -->
+{%extends "board_main_base.html"%}
+{% load static %}
+
+<!-- 주소창에 뜰 title -->
+{% block board_title %}
+    <title>혼술</title>
+{% endblock %}
+
+<!-- 각 게시판의 css(배경 색상 등) -->
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/screen/main/honsul.css' %}">
+{% endblock %}
+
+<!-- 각 게시판별 프로필 바로가기 -->
+{% block myprofile %}
+    <a href="{% url 'honsulmyprofile' %}">
+        <div id="mypage"></div>
+    </a>
+{% endblock %}
+
+<!-- 게시판 제목 -->
+{% block board_h1 %}
+    <h1>혼술</h1>
+{% endblock %}
+   
+<!-- 각 게시판 글쓰기 화면으로 넘어가는 링크 -->
+<!-- write html은 하나로 통일해도 될듯 -->
+{% block write %}   
+    <a href="{% url 'honsulwrite' %}">
+        <div class="span_wrap_col2">
+            <span>작성하기</span>
+            <i class="fa-solid fa-chevron-right"></i>
+        </div>
+    </a>
+{% endblock %}
+     
+<!-- 작성된 글 목록을 보여주는 부분 -->
+{% block content %}
+    
+    {% for post in posts %}
+        <div id="box">
+            <!-- honbab box -->
+
+            <!-- box title 누르면 상세 페이지로 (honbabdetail.html) 이동 -->
+
+            <div class="honbab_box">
+                
+                <a href="{% url 'honsuldetail' %}">
+                
+                    <div class="box_title">
+                            
+                            <div class="box_img"></div>
+                
+                            <div class="box_text_wrap">
+                                <div class="box_name">김얼롱</div>
+                                <div class="box_content_name">{{ post.title }}</div>
+                            </div>
+                            
+                    
+                    </div>
+                
+                </a>
+
+                <div class="box_preview">
+                    <p>
+                        {{ post.body }}
+                    </p>
+                </div>
+                
+                <div class="box_info">
+
+                    <div class="box_info_map_wrap">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>위치</span>
+                    </div>
+
+                    <div class="box_info_icon_wrap">
+                        <i class="fa-solid fa-heart fa-lg"></i>
+                        <span>123</span>
+                        <i class="fa-solid fa-comment fa-lg"></i>
+                        <span>456</span>
+                    </div>
+
+                </div>
+
+            </div>
+        
+        <!-- popular box -->
+
+        <div class="popular_box">
+            <h2>인기 얼롱인</h2>
+
+            <div class="popular_info_wrap">
+                <div class="popular_img"></div>
+                <div class="popular_name">이얼롱</div>
+            </div>
+
+            <div class="popular_follow_wrap">
+
+                <div class="popular_follow_col">
+                    <div>게시글수</div>
+                    <div>180</div>
+                </div>
+
+                <div class="popular_follow_col">
+                    <div>팔로워</div>
+                    <div>100</div>
+                </div>
+
+                <div class="popular_follow_col">
+                    <div>팔로잉</div>
+                    <div>50</div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    {% endfor %}
+{% endblock %}

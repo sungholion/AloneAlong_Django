@@ -1,0 +1,96 @@
+<!-- board_write_base.html을 상속하고, 그 파일과 공통되지 않는 부분들만 여기 명시 -->
+
+{% extends 'board_write_base.html' %}
+
+<!-- 주소창에 뜰 title -->
+{% block write_title %}
+    <title>혼술 게시판</title>
+{% endblock %}
+
+<!-- 프로필로 넘어가기 -->
+{% block myprofile %}
+    <a href="{% url 'honbabmyprofile' %}">
+        <div id="mypage"></div>
+    </a>
+{% endblock %}
+
+<!-- 글쓰기 게시판 선택(게시판 마다 기본 게시판 설정 다름) -->
+{% block write_category_select %}
+    <form action="" method="GET">
+        <select id="check_box">
+            <option value="">혼술</option>
+            <option value="">혼카페</option>
+            <option value="">혼놀</option>
+            <option value="">혼밥</option>
+        </select>
+    </form>
+{% endblock %}
+
+<!-- 각 게시판마다 다른 css(배경 색상 등) -->
+{% block write_css %}
+<!-- css -->
+<style>
+    body {
+        background-color: black
+    }
+
+    /* title */
+
+    .boardTitle {
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        height: 70px;
+        margin-top: 100px;
+        margin-left: 90px;
+    }
+
+    .boardTitle h1 {
+        margin: 10px;
+        font-size: 30px;
+        font-weight: 600;
+        color: var(--pink);
+    }
+
+    .boardTitle form {
+        position: relative;
+        ;
+    }
+
+    #check_box {
+        width: 150px;
+        padding: 5px;
+        background-color: var(--pink);
+        border-radius: 5px;
+        border: none;
+        position: absolute;
+        left: 10px;
+    }
+
+    /* board */
+
+    #board {
+        border-radius: 20px;
+        margin: 30px 100px;
+        background-color: aliceblue;
+    }
+
+    #board_btn {
+        height: 50px;
+        text-align: center;
+        font-size: 20px;
+        background-color: var(--pink);
+        color: rgba(0, 0, 0, 0.4);
+        font-weight: 500;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #board_btn:hover {
+        background-color: rgba(223, 108, 223, 0.66);
+        color: white;
+    }
+</style>
+
+{% endblock %}

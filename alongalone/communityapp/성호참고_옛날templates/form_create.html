@@ -1,0 +1,10 @@
+<h1>새 글 작성</h1>
+<form action="" method ="POST" enctype="multipart/form-data">  <!--파일을 업로드하게 된다면 enctype도 지정해야함.-->
+    {% csrf_token %}
+    <!-- views.py에서 render의 세번째 인자로 넘어온 데이터는 중괄호에 감싸져서 html에 나타낼 수 있음 -->
+    <table>
+        {{ form.as_table }}  
+    </table>
+    <!-- form.as_table은 form이 table에 감싸진 것처럼 표시될 수 있다는 뜻 -->
+    <input type="submit" value="새 글 생성하기">
+</form>

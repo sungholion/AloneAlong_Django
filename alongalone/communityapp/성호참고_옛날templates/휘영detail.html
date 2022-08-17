@@ -1,0 +1,378 @@
+<!-- 게시글 상세 페이지들의 base.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <!-- css -->
+    <link rel="stylesheet" href="{% static './style.css'}">
+    <!-- <link rel="stylesheet" href="./css/screen/detail/newdetailpost.css"> -->
+
+
+
+    <title>detailpost</title>
+</head>
+
+
+
+<body>
+
+    <!-- detailPostbox -->
+    <div class="scrollWrap">
+        <!-- left content -->
+        <div class="left_box">
+            <div class="total_post_btn"><i class="fa-solid fa-chevron-left"></i>전체 게시물 보기</div>
+
+
+            <!-- B : 여기(h1)에 게시물 제목이 와야 함!!! -->
+            <h1>{{ blog_detail.title }}</h1>
+            <!-- B : h5에 작성 날짜가 와야 함 -->
+            <h5>{{ blog_detail.date }}</h5>
+            <!-- B : p에 게시물 내용 와야 함 -->
+            <p>
+                {{ blog_detail.body }}
+            </p>
+
+            <!-- B : detail_post_img의 src에 게시물 상세 이미지가 와야 함 -->
+            <img class="detail_post_img" src="{{ blog_detail.photo.url }}" alt="">
+
+            <!-- B : 해당 게시물의 장소가 와야 함 -->
+            <!-- B : detail_location_col 자식요소인 h4에 주소, h5에 운영시간-->
+            <div class="detail_location">
+                <span class="detail_location_col"><i class="fa-solid fa-location-dot fa-2x"></i></span>
+                <span class="detail_location_col">
+                    <h4>{{ blog_detail.location }}</h4>
+                    <h5>9:00 ~ 22:00</h5> <!-- 아직 지도랑 연결 안됌 -->
+                    <!-- popup 생성 해야함!!!!!!!! -->
+                </span>
+
+            </div>
+
+
+
+
+            <!-- right content -->
+
+        </div>
+
+        <!-- scroll -->
+        <div class="scroll">
+
+            <!-- right content -->
+            <div class="right_box">
+
+
+                <h1>새싹러 소개</h1>
+
+                <!-- 가로 border -->
+                <hr>
+
+
+
+                <div class="user_profile">
+                    <div class="user_profile_img">
+                        <!-- B : 사용자 이미지 나오게-->
+                        <img src="" alt="">
+                    </div>
+                    <div class="user_profile_col">
+                        <div class="user_profile_name">사용자이름</div>
+                        <!-- B : 사용자 이름 나오게-->
+                        <button class="user_profile_follow">+follow</button>
+                    </div>
+                </div>
+                <!-- B : 사용자 짧은 소개글 -->
+                <div class="user_profile_message">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio minima est ex! Dolorum, placeat!
+                    Cumque doloribus, harum et animi tempore velit, eum in ea accusantium, quas accusamus earum porro
+                    officiis!
+                </div>
+
+                <!-- support btn -->
+
+                <button class="support_btn">
+                    얼롱인에게 새싹 후원하기
+                </button>
+
+                <!-- 가로 border -->
+                <hr>
+
+                <h3>수민님의 다른 게시물</h3>
+                <!-- B : 해당 유저의 다른 게시글을 띄워야 함 -->
+                <div class="another_post">
+                    <span class="another_post_title">게시글 제목</span>
+                    <span class="another_post_space">장소</span>
+                </div>
+
+                <div class="another_post">
+                    <span class="another_post_title">게시글 제목</span>
+                    <span class="another_post_space">장소</span>
+                </div>
+                <div class="another_post">
+                    <span class="another_post_title">게시글 제목</span>
+                    <span class="another_post_space">장소</span>
+                </div>
+
+                <!-- 가로 border -->
+                <hr>
+
+
+                <!-- 새싹 후원하기 -->
+
+
+                <h4>새싹 후원하기</h4>
+
+
+
+                <button class="first_support_box">
+                    500원 +
+                </button>
+
+                <div class="support_encourage">
+                    <p>
+                        "자라나는 콘텐츠 새싹에게 새싹 후원으로 마음을 전해보세요"
+                    </p>
+                </div>
+
+                <!-- B : 후원금 계산 적용  -->
+                <div class="detail_support_box">
+
+
+                    <h4>추가 후원금 (선택) </h4>
+                    <input type="number">
+
+                    <button>+1천원</button>
+                    <button>+5천원</button>
+                    <button>+1만원</button>
+                    <button>후원하기</button>
+                </div>
+
+
+                <!-- 가로 border -->
+                <hr>
+
+                <!-- 광고,이벤트 이미지 랜덤재생 -->
+                <div id="adBox">
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- js -->
+
+    <script>
+        // random color play
+
+        const adBox = document.getElementById("adBox")
+
+        const colors = [
+            "#ef5777",
+            "#575fcf",
+            "#4bcffa",
+            "#34e7e4",
+            "#0be881",
+            "#f53b57",
+            "#3c40c6",
+            "#0fbcf9",
+            "#00d8d6",
+            "#05c46b",
+            "#ffc048",
+            "#ffdd59",
+            "#ff5e57",
+            "#d2dae2",
+            "#485460",
+            "#ffa801",
+            "#ffd32a",
+            "#ff3f34"
+        ];
+
+        setInterval(() => {
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            adBox.style.background = `${randomColor}`;
+        }, 2000);
+    </script>
+
+
+    <!-- css -->
+    <style>
+        body {
+            background-color: aliceblue;
+        }
+
+        /* scrollWrap */
+        .scrollWrap {
+            position: relative;
+            top: 100px;
+            width: 1500px;
+            margin: 20px;
+            box-sizing: border-box;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            border: 1px solid #000000;
+        }
+
+        .left_box {
+            width: 50%;
+            background-color: lemonchiffon;
+            height: 500px;
+        }
+
+
+        /* scroll */
+        /* hide scrollbar but allow scrolling */
+        .scroll {
+            -ms-overflow-style: none;
+            /* for Internet Explorer, Edge */
+            scrollbar-width: none;
+            /* for Firefox */
+            overflow-y: scroll;
+        }
+
+        .scroll::-webkit-scrollbar {
+            display: none;
+            /* for Chrome, Safari, and Opera */
+        }
+
+
+        div.scroll {
+            border: solid 5px black;
+            border-radius: 5px;
+            height: 500px;
+            padding: 10px;
+            width: 500px;
+        }
+
+
+
+
+        .right_box {
+            background-color: lightsteelblue;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 99%;
+
+        }
+
+        /* 가로 border */
+
+        hr {
+            background-color: white;
+            height: 1px;
+            border: 0;
+            margin: 20px 0px;
+            width: 80%;
+        }
+
+        /* 얼롱인 소개  */
+        .user_profile {
+            background-color: #A7CCA2;
+            display: flex;
+            padding: 20px 0px;
+            box-sizing: border-box;
+            width: 80%;
+        }
+
+        .user_profile_img img{
+            width: 60px;
+            height: 60px;
+            background-size: cover;
+            background-repeat: no-repeat;
+    
+
+        }
+
+        /* user_profile_message */
+
+        .user_profile_message {
+            width: 80%;
+            font-size: 20px;
+        }
+
+        /* 다른 게시물 */
+
+        .another_post {
+            box-sizing: border-box;
+            width: 350px;
+            height: 100px;
+            background-color: aqua;
+            margin: 10px 30px;
+        }
+
+
+        /* 후원 관련 */
+        h4 {
+            width: 60%;
+            /* width 주면 좌측에 붙음 */
+            align-items: flex-start;
+        }
+
+        .support_encourage {
+            border: 1px solid white;
+            font-size: 20px;
+            width: 60%;
+            margin-top: 10px;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+
+
+
+        }
+
+        .first_support_box {
+            display: flex;
+            background-color: #A7CCA2;
+            padding: 20px 0px;
+            border-radius: 10px;
+            width: 60%;
+
+        }
+
+        .detail_support_box {
+            width: 300px;
+            height: 250px;
+            border: 1px solid black;
+            margin: 30px;
+            background-color: lightpink;
+        }
+
+
+        .support_btn {
+
+            padding: 10px 80px;
+            cursor: pointer;
+
+        }
+
+        /* 광고,이벤트 이미지 랜덤재생 */
+
+
+        #adBox {
+            width: 300px;
+            height: 500px;
+            border: 1px solid black;
+
+        }
+    </style>
+
+    <!— icon link —>
+    <script src="https://kit.fontawesome.com/73b35ca8d6.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

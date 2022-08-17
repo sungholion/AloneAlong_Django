@@ -1,0 +1,60 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>얼롱얼롱 : 로그인</title>
+</head>
+
+<body>
+    <h3>로그인해주세요!</h3>
+    <form class="user" method="POST">
+        <!--
+        form에 action="{url "이동할url이름"}"을 안적어 줬으니
+        submit버튼을 누른 순간 이 login.html을 렌더해준 뷰가 다시 실행된다.
+        따라서 views.py의 login_login함수에 로그인 기능도 추가되어있다.
+        -->
+        {% csrf_token %}
+        {% if isLoginFail %}
+            <h5>로그인에 실패했습니다. 아이디 또는 비밀번호가 잘못되었습니다.</h5>
+        {% endif %}
+        <div class="form-group">
+            <input type="text" class="form-control form-control-user"
+                id="exampleInputEmail" name="id" aria-describedby="emailHelp"
+                placeholder="아이디를 입력해주세요.">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control form-control-user"
+                id="exampleInputPassword" name="pw" placeholder="비밀번호를 입력해주세요.">
+        </div>
+        <div class="form-group">
+            <div class="custom-control custom-checkbox small">
+                <input type="checkbox" class="custom-control-input" id="customCheck">
+                <label class="custom-control-label" for="customCheck">Remember
+                    Me</label>
+            </div>
+        </div>
+        <input type="submit" value="로그인" class="btn btn-primary btn-user btn-block">
+        
+    </form>
+    <hr>
+    <a href="#" class="btn btn-google btn-user btn-block">
+        <i class="fab fa-google fa-fw"></i> 구글로 로그인하기
+    </a>
+    <hr>
+    <div class="text-center">
+        <a class="small" href="forgot-password.html">비밀번호를 잊었나요?</a>
+    </div>
+    <div class="text-center">
+        <a class="small" href="{% url 'signup' %}">계정이 없으면 여길 눌러 회원가입하세요.</a>
+    </div>
+</body>
+
+</html>

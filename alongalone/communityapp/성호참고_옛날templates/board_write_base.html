@@ -1,0 +1,179 @@
+<!-- 글쓰기 화면들의 base.html -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- bootstrap -->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    {% block write_title %}
+
+    {% endblock %}
+</head>
+
+
+<body>
+
+
+    <!-- header -->
+    <header>
+
+        <div class="header-col">
+            <img class="header-logo" src="{% static 'img/logowhite.PNG' %}">
+            <div class="header-title">
+                <span>along</span>
+                <span>alone</span>
+            </div>
+
+        </div>
+
+        <div class="header-col">
+            <a href="{% url 'index' %}">혼밥</a>
+            <a href="{% url 'honsul' %}">혼술</a>
+            <a href="{% url 'honcafe' %}">혼카페</a>
+            <a href="{% url 'honnol' %}">혼놀</a>
+        </div>
+
+        <span class="header-col-bar">
+            <div class="header-bar"></div>
+            <input class="header-bar-search" type="text">
+
+            <img src="{% static 'img/scrap.png' %}" alt="">
+            <img src="{% static 'img/alarm.png' %}" alt="">
+            
+            {% block myprofile %}
+        
+            {% endblock %}
+
+        </span>
+
+
+    </header>
+
+    <!-- 원래 양식 위치 -->
+
+
+        <!-- 글쓰기 화면 -->
+
+        <div class="container" style="margin-top: 200px;">
+            <h2 style="color: white;">게시판 글쓰기</h2> <br>
+            <form action="{% url 'create' %}" method="POST" enctype="multipart/form-data">    <!--  url은 제출버튼 누르면 저 함수 실행하는 url -->
+                    {% csrf_token %}    <!-- 보안관련임. 무시해도 됌 -->
+
+                <!-- <form action="write.jsp" method="post"> -->
+                    <div class="form-group">
+                        <label for="title" style="color: white;">제목</label>
+                        <input type="text" class="form-control" id="title" placeholder="제목 입력(4-100)" name="title" maxlength="100"
+                            required="required" pattern=".{4,100}"><!-- 제목 -->
+                        <input type="file"  name ="photo" ><!-- 사진 -->
+                        {% comment %} onerror="this.style.display='none'" {% endcomment %}
+                        <label for="location" style="color: white;" >장소 입력</label>
+                        {% comment %} <input type="text" name ="location" placeholder="제목 입력(1-100)" pattern=".{1,100}"> {% endcomment %}
+                        <input type="text" class="form-control" id="location" placeholder="장소 입력(1글자 이상)" name="location" maxlength="100"
+                            required="required" pattern=".{1,100}">
+                        <!-- form 태그는 제출을 해야 값이 저장되서, 선택만 해도 되는 select 사용
+                            option value 숫자는 데이터베이스에 저장할 때, 혼밥을 선택하면 1을 저장한다는 뜻--> 
+                        <select name="category" id="catetgory" style="color : white;"> 
+                            <option value="1">혼밥</option>
+                            <option value="2">혼술</option>
+                            <option value="3">혼카페</option>
+                            <option value="4">혼놀</option>
+                        </select>    
+
+                    </div>
+                    <div class="form-group">
+                        <label for="body" style="color: white;">내용</label> 
+                        <textarea class="form-control" rows="5" id="body" name="body" placeholder="내용 작성"></textarea>
+                    </div>  <!-- 본문 -->
+                    <!-- 데이터 형식 정의할 떄 본문 body로 해서 content -> body로 바꿈 -->
+
+                    <button type="submit" class="btn btn-default">등록</button>
+
+            </form>
+        </div>
+
+
+        
+                        <!-- <form action="" method="GET">
+                            <select id="check_box">
+                                <input type="checkbox" name = "category" id = "ca">
+                                <option value="">혼밥</option>
+                                <option value="">혼술</option>
+                                <option value="">혼카페</option>
+                                <option value="">혼놀</option>
+                            </select> -->
+
+                            <!-- <form action="" method="POST">
+                                <select id="check_box">
+                                    <option value="1"><label for = "category"><input type="checkbox" name="혼밥" value="1"> 혼밥</label></option>
+                                    <option value="2"><label for = "category"><input type="checkbox" name="혼술" value="2"> 혼술</label></option>
+                                    <option value="3"><label for = "category"><input type="checkbox" name="혼카페" value="3"> 혼카페</label></option>
+                                    <option value="4"><label for = "category"><input type="checkbox" name="혼놀" value="4"> 혼놀</label></option>
+                                </select>
+                            </form> -->
+                            <!-- </form> -->
+        
+    <!--  
+         {% block write_category_select %}
+        
+        {% endblock %}
+        
+    <div class="boardTitle">
+        <h1>제목을 입력하세요</h1>
+
+
+    
+    </div>
+        -->
+
+    <!-- board -->
+    
+    <!--  
+    <div id="board">
+        <div id="summernote"></div>
+        <script>
+            $('#summernote').summernote({
+                placeholder: 'Hello stand alone ui',
+                tabsize: 2,
+                height: 500,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                ]
+            });
+        </script>
+        <div id="board_btn">
+            작성하기
+        </div>
+
+    </div>
+        -->
+    {% block write_css %}
+   
+    {% endblock %}
+
+
+    <!--  icon 적용 -->
+    <script src="https://kit.fontawesome.com/73b35ca8d6.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

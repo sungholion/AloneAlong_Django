@@ -1,0 +1,14 @@
+{% extends 'board_detail_base.html' %}
+{% load static %}
+
+{% block detail_style %}
+<link rel="stylesheet" href="{% static 'css/screen/detail/honsuldetail.css' %}">
+{% endblock %}
+
+{% block detail_h1 %}
+<h1>혼술</h1>
+{% endblock %}
+
+{% block write_button %}
+<a href="{% url 'honsulwrite' %}">
+{% endblock %}

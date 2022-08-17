@@ -1,0 +1,278 @@
+        body {
+            box-sizing: border-box;
+            background-color: black;
+        }
+
+        /* honbab title */
+
+        .main_title {
+            margin-left: 100px;
+            margin-top: 100px;
+        }
+
+        .main_title h1 {
+            font-family: 'Noto Sans HK';
+            font-style: normal;
+            font-weight: 900;
+            font-size: 35px;
+            line-height: 51px;
+            /* identical to box height */
+
+            letter-spacing: 0.5em;
+
+            color: #FFE482;
+        }
+
+        #box {
+            margin-left: 100px;
+            margin-bottom: 20px;
+            display: flex;
+            height: 713px;
+        }
+
+        .main_title hr {
+            width: 461px;
+            height: 0px;
+            margin: 6px 0 7px 0;
+
+            border: 1px solid rgba(52, 52, 52, 0.95);
+        }
+
+        /*  카테고리 선택 */
+        .category {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .category.all {
+            width: 108px;
+            height: 32px;
+
+            font-family: 'Noto Sans HK';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 25px;
+            line-height: 36px;
+            letter-spacing: 0.1em;
+
+            color: #FFE482;
+
+            margin: 0 10px 0 0;
+        }
+
+        .category.hon {
+            height: 32px;
+
+            font-family: 'Noto Sans HK';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 25px;
+            line-height: 36px;
+            letter-spacing: 0.1em;
+
+            color: #FFFFFF;
+
+            opacity: 0.6;
+
+            padding: 0 35px 0 0;
+        }
+
+        /* 게시판 상세 박스 */
+        .left_box {
+            width: 855px;
+            height: 713px;
+            background-color: var(--yellow);
+            border-radius: 10px;
+            margin: 30px 0 30px 100px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content_title {
+            margin: 30px 0 0 55px;
+        }
+
+        /* 검색 결과 */
+        .search_result.text {
+            width: 419px;
+            height: 38px;
+
+            font-family: 'Noto Sans HK';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 25px;
+            line-height: 36px;
+            letter-spacing: 0.25em;
+
+            color: #FFFFFF;
+
+            margin-bottom: 10px;
+        }
+
+
+        /* 타임라인 (세부내용) */
+        .right_box {
+            box-sizing: border-box;
+            width: 349px;
+            height: 713px;
+
+            margin-top: 32px;
+
+            background: rgba(243, 252, 241, 0.1);
+            border-radius: 0 10px;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        hr.timeline {
+            padding: 0;
+
+            width: 352px;
+            height: 0px;
+            margin: 0 0 20px 0;
+
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .timeline {
+            margin-left: 30px;
+
+            color: #fff;
+            padding: 5px 20px;
+            height: 600px;
+        }
+
+        .timeline ul {
+            list-style-type: none;
+            border-left: 2px solid rgba(153, 153, 153, 1);
+            padding: 10px 5px;
+            height: 550px;
+        }
+
+        .timeline ul li {
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            position: relative;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: .5s;
+        }
+
+        .timeline ul li span {
+            display: inline-block;
+            background-color: #1685b8;
+            border-radius: 25px;
+            padding: 2px 5px;
+            font-size: 10px;
+            text-align: center;
+            color: black;
+        }
+
+        .timeline ul li span.honbab {
+            background-color: rgba(204, 249, 197, 1);
+        }
+
+        .timeline ul li span.honsul {
+            background-color: rgba(245, 193, 202, 1);
+        }
+
+        .timeline ul li span.honcafe {
+            background-color: rgba(138, 218, 252, 1);
+        }
+
+        .timeline ul li .content h3 {
+            font-family: 'Noto Sans HK';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 25px;
+            line-height: 22px;
+            letter-spacing: 0.1em;
+
+            color: #FFFFFF;
+            padding-top: 5px;
+            margin-top: 5px;
+        }
+
+        .timeline ul li .content p {
+            font-family: 'Noto Sans HK';
+            font-style: normal;
+            font-weight: 350;
+            font-size: 13px;
+            line-height: 22px;
+            letter-spacing: 0.1em;
+
+            color: #FFFFFF;
+            margin-top: 5px;
+        }
+
+        .timeline ul li:before {
+            position: absolute;
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            left: -11px;
+            top: 28px;
+            transition: .5s;
+        }
+
+        .timeline ul li.honbab:before {
+            background-color: rgba(204, 249, 197, 1)
+        }
+
+        .timeline ul li.honsul:before {
+            background-color: rgba(245, 193, 202, 1);
+        }
+
+        .timeline ul li.honcafe:before {
+            background-color: rgba(138, 218, 252, 1);
+        }
+
+
+        .timeline ul li.honbab:hover {
+            border: 1px solid rgba(204, 249, 197, 1);
+            background-color: transparent;
+        }
+
+
+        .timeline ul li.honsul:hover {
+            border: 1px solid rgba(245, 193, 202, 1);
+            background-color: transparent;
+            /* color:black; */
+        }
+
+        .timeline ul li.honcafe:hover {
+            border: 1px solid rgba(138, 218, 252, 1);
+            background-color: transparent;
+        }
+
+        .x {
+            font-family: 'Noto Sans HK';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 25px;
+            line-height: 22px;
+            /* or 88% */
+        
+            letter-spacing: 0.1em;
+        
+            color: #FFFFFF;
+            margin-top: 100px;
+        }
+
+        .honbab {
+            margin-bottom: 10px;
+        }
+
+        .honsul {
+            margin-bottom: 10px;
+        }
+
+        .honcafe {
+            margin-bottom: 10px;
+        }
+
+        
+

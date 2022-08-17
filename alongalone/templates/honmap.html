@@ -1,0 +1,100 @@
+{% extends "board_main_base.html" %}
+{% load static %}
+{% block title %}honmap{% endblock title%}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="/static/css/screen/map/honmap.css">
+{%endblock css%}
+{% block body %}
+
+    <!-- honbab title -->
+
+    <div class="main_title">
+        <h1>혼맵</h1>
+        <hr>
+        <div class="category">
+            <div class="category all">모두보기</div>
+            <div class="category hon">혼밥</div>
+            <div class="category hon">혼술</div>
+            <div class="category hon">혼카페</div>
+        </div>
+    </div>
+
+    <!-- boxes -->
+
+    <div id="box">
+        <!-- left : 지도 -->
+
+        <div class="left_box">
+            <h1>지도</h1>
+        </div>
+        <!-- right : 결과 텍스트  -->
+
+        <div class="right_box">
+            <div class="content_title">
+                <div class="search_result">
+                    <div class="search_result text" style="margin-left: 50px;">검색결과</div>
+                </div>
+            </div>
+            <hr class="timeline">
+            <div class="timeline">
+                <ul>
+                    <li class="honbab">
+                        <span class="honbab">혼밥</span>
+                        <div class="content">
+                            <a href="#" class="x">더쪽한식</a>
+                            <p>
+                                혼놀러 리뷰 22
+                            </p>
+                        </div>
+                    </li>
+                    <li class="honcafe">
+                        <span class="honcafe">혼카페</span>
+                        <div class="content">
+                            <a href="#" class="x">더쪽한식</a>
+                            <p>
+                                혼놀러 리뷰 22
+                            </p>
+                        </div>
+                    </li>
+                    <li class="honsul">
+                        <span class="honsul">혼술</span>
+                        <div class="content">
+                            <a href="#" class="x">더쪽한식</a>
+                            <p>
+                                혼놀러 리뷰 22
+                            </p>
+                        </div>
+                    </li>
+                    <li class="honbab">
+                        <span class="honbab">혼밥</span>
+                        <div class="content">
+                            <a href="#" class="x">더쪽한식</a>
+                            <p>
+                                혼놀러 리뷰 22
+                            </p>
+                        </div>
+                    </li>
+                    <li class="honbab">
+                        <span class="honbab">혼밥</span>
+                        <div class="content">
+                            <a href="#" class="x">더쪽한식</a>
+                            <p>
+                                혼놀러 리뷰 22
+                            </p>
+                        </div>
+                    </li>
+                    
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+{% endblock body %}
+
+
+
