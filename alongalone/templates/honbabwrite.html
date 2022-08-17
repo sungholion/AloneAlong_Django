@@ -56,6 +56,21 @@
                             <input type="text" class="form-control title1" id="location" placeholder="클릭해주세요."
                                 name="location" maxlength="20" placeholder="장소 입력(1글자 이상)" required="required">
                         </div>
+                        <!--아래 줄은 주소강제api 스크립트-->
+                        <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+                        <!--주소강제 api 스크립트 적용-->
+                        <script>
+                            window.onload = function(){
+                                document.getElementById("location").addEventListener("click", function(){
+                                    //주소텍스트박스를 클릭 시 별도의 주소적는 창 열림
+                                    new daum.Postcode({
+                                        oncomplete: function(data) { //선택시 입력값 세팅
+                                            document.getElementById("location").value = data.address; // 주소 넣기
+                                        }
+                                    }).open();
+                                });
+                            }
+                        </script>
                     </div>
 
                     <!-- 내용작성란 -->

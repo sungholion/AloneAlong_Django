@@ -61,15 +61,17 @@ urlpatterns = [
     #path('detail/<int:blog_id>', communityapp_views.detail, name='detail'),  # 예시 - 이렇게 id값 명시
    
     #path('/honbabdetail/', communityapp_views.honbabdetail, name='honbabdetail'), 
-    path('honbabdetail/<int:blog_id>', communityapp_views.honbabdetail, name = 'honbabdetail'),
-    path('honbabdetail/<int:blog_id>/delete', communityapp_views.honbabdetail_delete, name = 'honbabdetail_delete'),
-    path('honbabdetail/<int:blog_id>/update', communityapp_views.honbabdetail_update, name = 'honbabdetail_update'),
- 
+    path('honbabdetail/<int:blog_id>/', communityapp_views.honbabdetail, name = 'honbabdetail'),
+    path('honbabdetail/<int:blog_id>/delete/', communityapp_views.honbabdetail_delete, name = 'honbabdetail_delete'),
+    path('honbabdetail/<int:blog_id>/update/', communityapp_views.honbabdetail_update, name = 'honbabdetail_update'),
+    ##아래 한줄 인희작성
+    path("honbabdetail/<int:blog_id>/map/", communityapp_views.honbabdetail_map, name="honbabdetail_map"),
+
     ## 각 게시판과 연동되는 프로필 페이지 url (아직 미구현)
     path("honbabmyprofile/", communityapp_views.honbabmyprofile, name="honbabmyprofile"),
   
     #commentapp 관련 URL
-    path('create_comment/<int:blog_id>', communityapp_views.create_comment , name="create_comment"),
+    path('create_comment/<int:blog_id>/', communityapp_views.create_comment , name="create_comment"),
 
 
 

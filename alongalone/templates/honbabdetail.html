@@ -146,7 +146,8 @@
                 <button onclick="buttonclick_add(10000);">+1만원</button>
                 <script>
                     function buttonclick_displaymoney(){
-                        document.getElemenetById("money").innerText = 500+Number(document.getElementById("moneyTextBox").value);
+                        document.getElementById("money").value = 500+Number(document.getElementById("moneyTextBox").value);
+                        document.getElementById("money_display").textContent = 500+Number(document.getElementById("moneyTextBox").value);
                     }
                 </script>
                 <button onclick="buttonclick_displaymoney();">후원하기</button>
@@ -167,7 +168,7 @@
                         {% csrf_token %}
                         <div class="details">
                             <!-- B : 사용한 새싹 계산 -->
-                                <div class="used">새싹 <p name="money" id="money"></p>잎을 사용하여</div><br>
+                                <div class="used">새싹 <input type="hidden" name="money" id="money"><span id="money_display"></span>잎을 사용하여</div><br>
                                 <!-- B : 게시글 제목 가져오기 -->
                                 <div class="title">{{blog_detail.title}}</div><br>
                                 <div class="used">콘텐츠를 후원합니다.</div><br>
@@ -176,8 +177,6 @@
                         <button type=submit>확인</button>
                     </form>
                 </div>
-
-
             </div>
 
 

@@ -129,7 +129,14 @@ def honbabdetail_update(request, blog_id):
   else:
     post=Blog()
     return render(request, 'update.html', {'post':post})
-
+    
+    
+##인희작성 : 세부페이지에서 세부맵으로 이동하는 함수
+def honbabdetail_map(request, blog_id):
+    location_detailpost = Blog.objects.get(pk=blog_id).location
+    detailposts_location = Blog.objects.filter(location=location_detailpost).exclude(pk=blog_id)[:3]
+    num_detailposts_location = len(Blog.objects.filter(location=location_detailpost))
+    return render(request, "map_popup.html", {"location" : location_detailpost, "otherPosts":detailposts_location, "numPosts":num_detailposts_location})
 
 #프로필 함수
 def honbabmyprofile(request):
