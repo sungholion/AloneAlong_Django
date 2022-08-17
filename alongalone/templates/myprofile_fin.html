@@ -34,7 +34,7 @@
                 <div class="profile_right_left">
                     <!-- B : 사용자 이름 -->
                     <!-- B : 최대 글자 한글로 6글자, 영어로 10글자까지 제한! -->
-                    <div class="name">abcdefgabc</div>
+                    <div class="name">{{user.nickname}}</div>
                 </div>
 
                 <div class="profile_right_right">
@@ -44,7 +44,7 @@
             <br><br><br><br>
             <div class="details_">
                 <!-- B : 사용자 자기 소개 -->
-                <div class="info" >안녕하세요안녕하세요안녕하세요안녕하세혼밥을 좋아하는 김얼롱입니다😃안녕하세요안녕하세요안녕하세요안녕하세요안녕하세혼밥을 좋아하는 김얼롱입니다😃s</div>
+                <div class="info" >{{user.introduction}}</div>
             </div>
         </div>
     </div>
@@ -75,15 +75,25 @@
                 <a href="{% url "sponsor" %}">
                     <img class="post green" src="/static/img/chi.jpeg" alt="">
                 </a>
-                <div class="post pink">2</div>
-                <div class="post pink">3</div>
+                <a href="{% url "sponsor" %}">
+                    <img class="post green" src="/static/img/chi.jpeg" alt="">
+                </a>
+                <a href="{% url "sponsor" %}">
+                    <img class="post green" src="/static/img/chi.jpeg" alt="">
+                </a>
                 </div>
                 </br>
-                <div class="post_row">
-                    <div class="post pink">4</div>
-                    <div class="post pink">5</div>
-                    <div class="post pink">6</div>
-                </div>
+            <div class="post_row">
+                <a href="{% url "sponsor" %}">
+                    <img class="post green" src="/static/img/chi.jpeg" alt="">
+                </a>
+                <a href="{% url "sponsor" %}">
+                    <img class="post green" src="/static/img/chi.jpeg" alt="">
+                </a>
+                <a href="{% url "sponsor" %}">
+                    <img class="post green" src="/static/img/chi.jpeg" alt="">
+                </a>
+            </div>
         </div>
     </div>
 </div>

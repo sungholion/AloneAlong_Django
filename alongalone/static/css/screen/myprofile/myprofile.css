@@ -2,13 +2,17 @@
 예) 클릭하면 밑줄 생기는 것 등등 */
 @import url("/css/components/reset.css");
 
-#mypage {
+/* #mypage {
     background-color: white;
     width: 30px;
     height: 30px;
     border-radius: 50%;
     margin-left: 10px;
     cursor: pointer;
+} */
+
+body {
+    background-color: black;
 }
 
 .content {
@@ -192,7 +196,7 @@
 }
 
 .info {
-    width: 551px;
+    width: 700px;
     height: 66px;
 
     font-family: 'Noto Sans HK';
