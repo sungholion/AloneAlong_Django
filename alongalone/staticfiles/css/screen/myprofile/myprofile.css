@@ -1,0 +1,407 @@
+/* 브라우저에서 기본 동작되는 CSS 다 지우는 것 
+예) 클릭하면 밑줄 생기는 것 등등 */
+@import url("/css/components/reset.css");
+
+/* #mypage {
+    background-color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left: 10px;
+    cursor: pointer;
+} */
+
+body {
+    background-color: black;
+}
+
+.content {
+    width: 1203px;
+    height:100%;
+    margin-left: 150px;
+    margin-top: 100px;
+}
+
+.profile {
+    margin-top: 20px;
+    height: 110px;
+    box-sizing: border-box;
+    
+    
+}
+
+.profile_left {
+    width: 5%;
+    padding-left: 36px;
+    padding-bottom: 30px;
+    padding-top: 0px;
+    float:left;
+    box-sizing: border-box;
+    margin-right: 0;
+}
+
+.profile_right_float {
+    margin-top: 30px;
+}
+
+.profile_right {
+    width: 85%;
+    margin-top: 0;
+    float: right;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.profile_right_left {
+    float: left;
+    width: 20%;
+    box-sizing: border-box;
+}
+
+.profile_right_right {
+    float: right;
+    width: 80%;
+    box-sizing: border-box;
+}
+
+.profile_bg {
+    display:flex;
+    width: 105px;
+    height: 105px;
+    border-radius: 50%;
+}
+
+.profile_bg.green {
+    background-color: #CCF9C5;
+}
+
+.profile_bg.pink {
+    background-color: #F5C1CA;
+}
+
+.profile_bg.blue {
+    background-color: #8ADAFC;
+}
+
+.profile_bg.yellow {
+    background-color: #FFE482;
+}
+
+.profile_img {
+    margin: auto;
+    background-color: white;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.size {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.name {
+    font-family: 'Noto Sans HK';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 22px;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.follow_button {
+    display: flex;
+    width: 87px;
+    height: 32px;
+
+    border-radius: 10px;
+    border: 0;
+
+    text-align: center;
+    padding: 0 20px;
+    padding-top:2px;
+    font-family: 'Noto Sans HK';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0.1em;
+    color: rgba(10, 10, 10, 0.95);
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+            inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+
+.follow_button.green {
+    background: #A7CCA2;
+}
+
+.follow_button.pink {
+    background: #b97c86;
+}
+
+.follow_button.blue {
+    background: #90bbce;
+}
+
+.follow_button.yellow {
+    background: #d2c38d;
+}
+
+.follow_button.green:hover {
+    background-color: #CCF9C5;
+}
+
+.follow_button.pink:hover {
+    background-color: #F5C1CA;
+}
+
+.follow_button.blue:hover {
+    background-color: #8ADAFC;
+}
+
+.follow_button.yellow:hover {
+    background-color: #FFE482;
+}
+
+.follow_button:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+            inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
+
+.details_ {
+    font-family: 'Noto Sans HK';
+    font-style: normal;
+    font-weight: 350;
+    font-size: 16px;
+    line-height: 22px;
+
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.95);
+
+    opacity: 0.8;
+    display: flex;
+    float: left;
+}
+
+.details {
+    /* width: 60%; */
+    font-family: 'Noto Sans HK';
+    font-style: normal;
+    font-weight: 350;
+    font-size: 16px;
+    line-height: 22px;
+
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.95);
+
+    opacity: 0.8;
+    display: block;
+    float: right;
+}
+
+.info {
+    width: 700px;
+    height: 66px;
+
+    font-family: 'Noto Sans HK';
+    font-style: normal;
+    font-weight: 350;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0.1em;
+
+    color: rgba(255, 255, 255, 0.95);
+
+    margin-right: 22px;
+}
+
+hr {
+    width: 890px;
+    height: 0px;
+    border: 1px solid rgba(52, 52, 52, 0.95);
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* 게시물 */
+
+
+.post {
+    width: 270px;
+    height: 264px;
+    border-radius: 10px;
+    margin: 16px 17px 16px 17px;
+    flex:1;
+
+    background-color: black;
+   
+}
+
+.post.green {
+    background: transparent;
+}
+
+.post.pink {
+    background: transparent;
+}
+
+.post.blue {
+    background: transparent;
+}
+
+.post.yellow {
+    background: transparent; 
+}
+
+.post_row {
+    display: flex;
+    justify-content: center;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+/* 다른 카테고리 */
+
+.category_text {
+    padding-bottom: 67px;
+    font-family: 'Noto Sans HK';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 22px;
+
+    letter-spacing: 0.1em;
+
+    color: #FFFFFF;
+}
+
+
+.category_title {
+    border:0;
+    padding: 14px 0px 14px 20px;
+    text-align: left;
+    font-family: 'Noto Sans HK';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 29px;
+    letter-spacing: 0.1em;
+
+    color: rgba(10, 10, 10, 0.95);
+    border-radius: 10px;
+
+    width: 210px;
+    height: 60px;
+    margin-bottom: 22px;
+}
+
+.category_title:hover {
+    background-color: whitesmoke;
+}
+
+.category_title:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+            inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+.category_title.green{
+    background-color: #CCF9C5;
+}
+
+.category_title.pink {
+    background-color: #F5C1CA;
+}
+
+.category_title.blue {
+    background-color: #8ADAFC;
+}
+
+.category_title.yellow {
+    background-color: #FFE482;
+}
+
+.category_ {
+    background-color: transparent;
+}
+
+.category_status {
+    box-sizing: border-box;
+    /* width: 14px;
+    height: 14px; */
+
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    
+    padding:7px 7px 7px 7px;
+
+    margin: 21px 33px 21px 163px;
+}
+
+
+/* 프로필 바로 아래 카테고리 선택 */
+
+.category {
+    height: 100%;
+    margin-bottom: 9px;
+}
+
+.category.left {
+    margin: 0;
+    float: left;
+    box-sizing: border-box;
+}
+
+.category.right {
+    float: right;
+    box-sizing: border-box;
+}
+
+.w-btn {
+    font-family: 'Noto Sans HK';
+    font-style: normal;
+    font-weight: 350;
+    font-size: 20px;
+    line-height: 29px;
+
+    text-align: center;
+    letter-spacing: 0.1em;
+
+    height: 32px;
+
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    transition: 0.25s;
+    margin-bottom: 0;
+}
+
+.category.details {
+    
+    font-family: 'Noto Sans HK';
+    font-style: normal;
+    font-weight: 350;
+    font-size: 16px;
+    line-height: 22px;
+
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.95);
+
+    opacity: 0.8;
+    display: flex;
+    float: left;
+    margin-right: 230px;
+}
+
+
+.info2_ {
+    margin-right: 600px;
+}
+
+.info2 {
+    margin-right: 118px;
+}

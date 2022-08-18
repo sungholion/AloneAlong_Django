@@ -1,0 +1,228 @@
+body {
+    background-color: black;
+}
+
+.main_title {
+    width: 60%;
+    height: 60px;
+    margin-top: 90px;
+    padding: 30px 100px;
+}
+
+.main_title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    color: var(--mint);
+    margin-bottom: 10px;
+}
+
+.span_wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    position: relative;
+}
+
+.span_wrap_col1 {
+    margin-top: 10px;
+}
+
+.span_wrap_col1 span {
+    margin: 0px 3px;
+    color: white;
+
+}
+
+.span_wrap_col1 span:first-child {
+    color: var(--mint);
+}
+
+
+.span_wrap_col1 span:hover,
+.span_wrap_col2:hover {
+    color: rgb(111, 110, 110);
+}
+
+.span_wrap_col2 {
+    position: absolute;
+    right: 52px;
+    color: white;
+}
+
+
+
+
+/* 이 위에는 CSS 아무 문제 없음 */
+
+
+
+
+
+
+/* box */
+#box {
+    display: flex;
+    background-color: black;
+
+}
+
+
+
+/* honbab box */
+
+.honbab_box {
+    width: 60%;
+    height: 300px;
+    background-color: var(--mint);
+    border-radius: 15px;
+    margin: 30px 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.box_title {
+    display: flex;
+    padding: 30px;
+}
+
+
+.box_img {
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 50px;
+    margin-right: 20px;
+}
+
+.box_text_wrap {
+
+    margin-top: 10px;
+    height: 50px;
+    padding: 10px;
+    width: 460px;
+}
+
+/* 이거 안 뜸! */
+.box_Username {
+    font-size: 27px;
+}
+
+.box_content_title {
+    margin-top: 5px;
+    font-size: 22px;
+    overflow: hidden;
+}
+
+/* 게시물 미리보기 */
+.box_preview {
+    padding: 0px 50px;
+    overflow: hidden;
+    height: 59px;
+    font-size: 20px;
+}
+
+
+/* 게시글 관련 위치, 공감수, 댓글수  */
+.box_info {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+    font-size: 19px;
+
+    width: 100%;
+}
+
+
+.box_info_map_wrap {
+    padding-left: 50px;
+}
+
+.contents_location {}
+
+.box_info_icon_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 40px;
+    position: relative;
+}
+
+.box_info_icon_wrap i {
+    width: 20px;
+    margin: 10px;
+}
+
+.box_info_icon_wrap .fa-heart:hover {
+    color: red;
+}
+
+.box_info_icon_wrap .fa-comment:hover {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+/* 우측 박스 */
+/* popular box  */
+
+.popular_contents_title {
+
+    font-size: 18px;
+    font-weight: 800;
+    color: white;
+    position: relative;
+    bottom: 20px;
+}
+
+.right_popular_box {
+    width: 20.2%;
+    height: 300px;
+    background-color: var(--mint);
+    margin-right: 100px;
+    margin-top: 30px;
+    border-radius: 10px;
+    position: relative;
+}
+
+
+
+.popular_info_wrap {
+    height: 300px;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+    bottom: 17.3px;
+}
+
+.popular_contents_img img {
+    width: 320px;
+    height: 230px;
+    object-fit: cover;
+    margin-top: 0px;
+    background-repeat: no-repeat;
+}
+
+
+.popular_contents_text_wrap {
+    width: 300px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 5px;
+}
+
+.popular_contents_spacetitle {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.popular_name {
+    font-weight: 600;
+    margin-top: 5px;
+}

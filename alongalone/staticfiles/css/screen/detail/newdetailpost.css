@@ -1,0 +1,701 @@
+
+    body {
+        background-color: black;
+    }
+
+    .header-col2 a :first-child{
+        color: white;
+    }
+
+    .Postcategory {
+        color: var(--mint);
+
+        font-weight: 800;
+        margin-top: 100px;
+        position: absolute;
+        left: 110px;
+        top: -30px;
+
+
+        font-family: 'Noto Sans HK';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 44px;
+        /* identical to box height, or 147% */
+
+        letter-spacing: 0.1em;
+
+    }
+
+    .scrollWrap {
+        background-color: #2C2D2C;
+        /* post창 배경색임 */
+        opacity: 80%;
+        border: 1px solid white;
+        width: 1000px;
+        height: 1000px;
+        
+        margin: 250px 0px;
+        margin-left: 150px;
+        position: relative;
+        left: 25px;
+        margin-bottom: 40px;
+  
+    }
+
+
+
+    .left_box_wrap{
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    /* 좌측 박스 */
+
+    .left_box {
+
+        width: 90%;
+        height: 800px;
+        box-sizing: border-box;
+        padding: 60px;
+        background-color:#2C2D2C;
+    
+        
+
+        overflow-y: scroll;
+    }
+
+    .left_box::-webkit-scrollbar {
+        display: none;
+        /* for Chrome, Safari, and Opera */
+    }
+
+    /* 전체 게시물 보기 버튼  */
+    .total_post_btn a {
+        color: white;
+        position: relative;
+        top: -60px;
+    }
+    .total_post_btn a {
+        color: white;
+    }
+
+    .postTitle {
+        color: var(--mint);
+        font-weight: 800;
+        font-size: 26px;
+        position: relative;
+        top: -10px
+    }
+
+    .postDate {
+        color: white;
+        position: relative;
+        top: 10px;
+    }
+
+    .fa-heart,
+    .fa-comment {
+        width: 20px;
+        height: 20px;
+        color: white;
+        margin: 0px 20px;
+    }
+
+
+    .postContent {
+        width: 800px;
+        height: 180px;
+        color: white;
+        overflow: scroll;
+        scroll-behavior: smooth;
+        margin-bottom: 10px;
+
+    }
+
+    .postContent::-webkit-scrollbar {
+        display: none;
+        /* for Chrome, Safari, and Opera */
+    }
+
+    .detail_post_img {
+        width: 800px;
+        height: 500px;
+        border-radius: 20px;
+        margin-top: 30px;
+        object-fit: cover;
+        background-repeat: no-repeat;
+    }
+
+    /* comment 창 */
+
+    /* 공감 & 댓글 버튼  */
+    .btnWrap {
+        display: flex;
+        height: 50px;
+    }
+
+/* 하트버튼 */
+    .heart_btn {
+        width: 100px;
+        height: 40px;
+        border: 3px solid white;
+        margin-left: 10px;
+        color: white;
+        display: flex;
+        margin-right: 10px;
+        padding: 0px 5px;
+        box-sizing: border-box;
+    }
+    .heart_btn div, .heart_btn i{
+        font-size: 20px;
+        height: 30px;
+        width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+ 
+    }
+
+    .heart_btn i {
+        position: relative;
+        left: -9px;
+        top: 2px;
+    }
+    .heart_btn div {
+        position: relative;
+        left: -30px;
+        top: 3px;
+    }
+
+
+
+
+    /* 댓글창 */
+    .comment_Btn {
+        border: 3px solid white;
+        height: 40px;
+        width: 130px;
+        display: flex;
+        justify-content: center;
+        padding: 0px 5px;
+        box-sizing: border-box;
+        color: white;
+    }
+
+    .comment_Btn_num_Wrap {
+        display: flex;
+        position: relative;
+        left: -13px;
+    }
+
+    .comment_Btn i, .comment_Btn span {
+        font-size: 20px;
+        width: 40px;
+ 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .comment_Btn .fa-comment {
+        position: relative;
+        top: 7px;
+        left: 5px;
+        font-size: 20px;
+    }
+     
+    
+    
+
+
+    /* 댓글창 */
+
+    form {
+        all:unset
+    }
+    input {
+        all: unset;
+    }
+
+
+    /* 댓글창 */
+    #id_comment {
+        all: unset;
+        position: relative;
+        left: -25px;
+        width: 800px;
+        height: 100px;
+        border: 2.5px solid white;
+        color: white;
+        margin-left: 80px;
+    }
+
+
+    .commentForm {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+    .commentForm label {
+        display: none;
+    }
+
+    .commentForm input {
+        padding: 5px;
+        width: 100px;
+        height: 20px;
+        text-align: center;
+        margin-top: 10px;
+        background-color: #A7CCA2;
+    }
+    
+    /* 수정하기 버튼 */
+
+.commentHidden {
+    display: none;
+}
+
+    .changeComment{
+       
+        position: relative;
+       left: 720px;
+       cursor: pointer;
+    }
+
+    .changeComment:hover , .removeComment:hover {
+        color: #CCF9C5;
+    }
+    .removeComment {
+        
+        position: relative;
+       left: 720px;
+       cursor: pointer;
+    }
+
+
+    #comment_Reply {
+        width: 800px;
+        height: 30px;
+        /* border: 2px solid white; */
+        position: relative;
+        left: 10px;
+        color: white;
+        display: flex;
+       padding: 10px;
+        text-align: center;
+        align-items: center;
+
+    }
+
+
+    /* 위치 정보 */
+    .detail_location {
+        background-color: var(--mint);
+        width: 780px;
+        height: 70px;
+        position: relative;
+        border-radius: 10px;
+        margin-top: 20px;
+        position: relative;
+        margin-left: 50px;
+
+    }
+
+    .location_Wrap {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+         
+       
+    }
+
+    .detail_location_col {
+
+        font-size: 16px;
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+        position: relative;
+        left: -60px;
+        top: 7px;
+    }
+
+    .fa-location-dot {
+        width: 65px;
+        height: 65px;
+        text-align: center;
+        position: relative;
+        left: -50px;
+        top: 20px;
+
+    }
+
+    .detail_location_col {
+        width: 70%;
+    }
+
+
+
+
+
+/* 여기서부터 오른쪽 작업임 */
+
+/* scrollWrap */
+/* 왼 오 감싸는 태그 */
+ .scrollWrap {
+    position: relative;
+    top: 100px;
+    width: 1500px;
+    margin: 20px;
+    box-sizing: border-box;
+    padding: 20px;
+    display: flex;
+
+   
+}
+
+
+
+
+/* scroll 기능 관련*/
+/* hide scrollbar but allow scrolling */
+.scroll {
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll; 
+  }
+  
+  .scroll::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+  } 
+  
+
+  div.scroll {
+    border-left: 1px solid white;
+    border-radius: 5px;
+    height: 100vh;
+    padding: 10px;
+    width: 500px;
+    padding-right: 50px;
+    padding-left: 50px;
+  }
+  
+
+  .right_box {
+    
+      display: flex;
+      flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    width: 99%;
+    margin-top: 80px;
+   
+}
+
+/* 가로 border */
+
+hr {
+    background-color: white;
+    height:1px;
+    border: 0;
+    margin: 20px 0px;
+    width: 80%;
+}
+
+.saessak_intro_wrap {
+    position: relative;
+    width: 170px;
+
+}
+.saessak_intro {
+    position: absolute;
+    left: -50px;
+    bottom: -10px;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* 얼롱인 소개  */
+.user_profile{
+    
+    display: flex;
+    padding: 10px 0px;
+    box-sizing: border-box;
+    width: 80%;
+    background-color: #A7CCA2;
+    margin-bottom: 20px;
+}
+
+.user_profile_img img {
+    width: 60px;
+    height: 60px;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    background-color: gray;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 50%;
+
+}
+
+.user_profile_col {
+   
+    display: flex;
+    flex-direction: column;
+    padding: 10px 5px;
+}
+
+.user_profile_name {
+    color:white;
+    font-weight: 700;
+    margin-bottom: 5px;
+
+}
+/* follow button */
+.user_profile_follow {
+    width: 73px;
+    padding: 5px;
+    height: 20px;
+    border: none;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 11px;
+    justify-content: center;
+}
+/* user_profile_message */
+
+.user_profile_message {
+    width: 80%;
+    height: 200px;
+    font-size: 15px;
+    margin-bottom: 10px;
+    background-color: #A7CCA2;
+}
+
+/* 얼롱인에게 새싹 후원 하기 */
+.support_btn {
+    width: 130px;
+
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    background-color:#CCF9C5F2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    
+}
+
+
+
+/* 다른 게시물 */
+
+
+.another_post_h3 {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 80px;
+}
+.another_post {
+    box-sizing: border-box;
+    padding: 30px;
+    width: 340px;
+    height: 80px;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    margin: 10px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.another_post_col {
+    margin-left: 10px;
+    width: 300px;
+    height: 50px;
+    margin-top: 10px;
+}
+
+.sponsor {
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* 후원 관련 */
+h4.saessak_sponsor{
+    font-size: 20px;
+    font-weight: 700;
+    /* width 주면 좌측에 붙음 */
+    color: white;
+   align-items: flex-start;
+   margin-bottom: 10px;
+}
+
+.support_encourage {
+    border: 1px solid white;
+    font-size: 20px;
+    width: 60%;
+    margin-top: 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+   
+   
+      
+}
+
+.support_button_Wrap {
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #CCF9C5;
+padding: 10px;
+border-radius: 10px;
+width: 250px;
+height: 30px;
+border: none;
+}
+
+.support_button_Wrap img {
+    width: 50px;
+    height: 50px;
+}
+
+.support_button_Wrap button {
+    border: none;
+    background-color:#CCF9C5;
+
+}
+
+.support_encourage {
+    padding-left: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 280px;
+    height: 80px;
+   
+    border: 3px solid white;
+    border-radius: 15px;
+    border-top-right-radius: 0px;
+}
+.support_encourage p {
+    color: white;
+   font-size: 17px;
+}
+
+
+.detail_support_box {
+    width: 300px;
+    height: 250px;
+    border: 2px solid #CCF9C5;
+    border-radius: 10px;
+    margin: 30px;
+    padding-right: 12px;
+   
+} 
+
+.ohbaekone_support_box {
+display: flex;
+align-items: center;
+justify-content: flex-start;
+border-bottom: 2px solid #CCF9C5;
+padding: 10px;
+color: white;
+}
+
+.ohbaekone_support_box img {
+    width: 50px;
+    height: 50px;
+}
+
+.sponsomoneyAdd {
+    margin-top: 20px;
+    color: white;
+    padding: 0px 20px;
+}
+.sponsomoneyAdd h4 {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+input{
+    all: unset;
+}
+
+button{
+    all: unset;
+}
+
+.sponsomoneyAdd input {
+    
+    margin-top: 5px;
+    width: 250px;
+    border: 1px solid white;
+    background-color:none;
+    padding: 10px;
+    margin-right: 20px;
+}
+
+#thousandwon, #fivethousandwon,#millionwon {
+
+    margin-top: 5px;
+    border: 1px solid white;
+    background-color:none;
+    padding: 10px;
+    width: 60px;
+    font-size: 10px;
+    color: white;
+}
+
+#spon_btn {
+    margin-top: 10px;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    width: 250px;
+    font-size: 13px;
+    margin-left: 20px;
+}
+
+.moneyBtnWrap {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.support_btn {
+
+    padding: 10px 80px;
+    cursor: pointer;
+    
+}
+
+
+
+/* 광고,이벤트 이미지 랜덤재생 */
+
+
+#adBox {
+    width: 300px;
+    height: 500px;
+    border: 1px solid black;
+
+}
+ 
+
+
+   
