@@ -24,7 +24,11 @@
         <div class="profile_left" style="margin-top: 25px;">
             <!-- B : 사용자 사진 -->
             <div class="profile_bg green">
-                <span class="profile_img"></span>
+                <span class="profile_img">
+                    {% if user.profilePhoto %}
+                    <img class="size" src="{{user.profilePhoto.url}}" alt="">
+                    {% endif %}
+                </span>
             </div>
         </div>
 
@@ -44,7 +48,8 @@
             <br><br><br><br>
             <div class="details_">
                 <!-- B : 사용자 자기 소개 -->
-                <div class="info" >{{user.introduction}}</div>
+                <div class="info" >{{user.introduction}} 
+                </div>
             </div>
         </div>
     </div>
@@ -63,36 +68,29 @@
             </div>
         </div>
     </div>
-
-
+  
 <!-- B : 사진 넣기 -->
     <div id="category" >
         <!-- 기본으로 선택된 건 혼밥 카테고리 -->
-        <br></br>\n
+        <br></br>
         <hr style="width: 1050px; text-align: center; margin-top: 0;">
         <div class="posts">
             <div class="post_row">
-                <a href="{% url "sponsor" %}">
-                    <img class="post green" src="/static/img/chi.jpeg" alt="">
-                </a>
-                <a href="{% url "sponsor" %}">
-                    <img class="post green" src="/static/img/chi.jpeg" alt="">
-                </a>
-                <a href="{% url "sponsor" %}">
-                    <img class="post green" src="/static/img/chi.jpeg" alt="">
-                </a>
+                {% for post in posts %}
+
+                    <a href="{% url 'honbabdetail' post.id %}">
+                        <img class="post green" src="{{ post.photo.url }}" alt="">
+                    </a>
+                {% endfor %}
                 </div>
                 </br>
             <div class="post_row">
-                <a href="{% url "sponsor" %}">
-                    <img class="post green" src="/static/img/chi.jpeg" alt="">
+                {% for post2 in posts2 %}
+
+                <a href="{% url 'honbabdetail' post2.id %}">
+                    <img class="post green" src="{{ post2.photo.url }}" alt="">
                 </a>
-                <a href="{% url "sponsor" %}">
-                    <img class="post green" src="/static/img/chi.jpeg" alt="">
-                </a>
-                <a href="{% url "sponsor" %}">
-                    <img class="post green" src="/static/img/chi.jpeg" alt="">
-                </a>
+            {% endfor %}
             </div>
         </div>
     </div>
