@@ -307,6 +307,40 @@ detailpost
 
 
 
+
+
+<!-- map pop up -->
+
+
+
+<!-- spon pop up -->
+
+<div id="popup" class="hidden">
+    <div class="content">
+        <!-- B : 보유새싹 계산 -->
+        <div class="how_much">
+            내 보유새싹 : {{user.cash}}잎
+        </div><br>
+        <form action="{% url "donate" blog_detail.id %}" method="POST">
+            {% csrf_token %}
+            <div class="details">
+                <!-- B : 사용한 새싹 계산 -->
+                <div class="used">새싹 <input type="hidden" name="money" id="money"><span id="money_display"></span>잎을
+                    사용하여</div>
+                <br>
+                <!-- B : 게시글 제목 가져오기 -->
+                <div class="title">{{blog_detail.title}}</div><br>
+                <div class="used">콘텐츠를 후원합니다.</div><br>
+            </div>
+            <div class="Btn">
+                <button class="cancelBtn">취소</button>
+                <button class="confrimBtn" type=submit>확인</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
 <!-- js -->
 
 <script>
