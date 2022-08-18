@@ -5,106 +5,124 @@
 
 <!-- 게시판 css -->
 {% block css %}
-<link rel="stylesheet" href="/static/css/screen/main/honbab.css">
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet" href="/static/css/screen/main/newhonbab.css">
 {% endblock %}
 
 <!-- 혼밥 게시판 기능들 : 글쓰기, 글목록 보기 -->
 {% block body %}
 <div class="main_title">
-  <h1>혼밥</h1>
-  <!-- 각 게시판 별 이름 -->
+    <h1>혼밥</h1>
+    <!-- 각 게시판 별 이름 -->
 
-  <div class="span_wrap">
-    <!-- 필터링(@@@미구현@@@) -->
-    <div class="span_wrap_col1">
-      <span>최신순</span>
-      <span>좋아요순</span>
-      <span>댓글순</span>
+    <div class="span_wrap">
+        <!-- 필터링(@@@미구현@@@) -->
+        <div class="span_wrap_col1">
+            <span>최신순</span>
+            <span>좋아요순</span>
+            <span>댓글순</span>
+        </div>
+
+        <!-- 글쓰기 화면으로 넘어가는 url -->
+        {% if user.is_authenticated %}
+        <a href="{% url 'honbabwrite' %}">
+            <div class="span_wrap_col2">
+                <span>작성하기</span>
+                <i class="fa-solid fa-chevron-right"></i>
+            </div>
+        </a>
+
+        {% else %}
+        <a href="{% url 'login' %}">
+            <div class="span_wrap_col2">
+                <span>작성하기</span>
+                <i class="fa-solid fa-chevron-right"></i>
+            </div>
+        </a>
+        {% endif %}
     </div>
-
-    <!-- 글쓰기 화면으로 넘어가는 url -->
-    {% if user.is_authenticated %}
-    <a href="{% url 'honbabwrite' %}">
-      <div class="span_wrap_col2">
-        <span>작성하기</span>
-        <i class="fa-solid fa-chevron-right"></i>
-      </div>
-    </a>
-
-    {% else %}
-    <a href="{% url 'login' %}">
-      <div class="span_wrap_col2">
-        <span>작성하기</span>
-        <i class="fa-solid fa-chevron-right"></i>
-      </div>
-    </a>
-    {% endif %}
-  </div>
 </div>
 
 <!-- boxes (게시글 목록 보여주는 부분)-->
 {% if posts %} {% for post in posts %}
 <div id="box">
-  <div class="honbab_box">
-    <a href="{% url 'honbabdetail' post.id %}">
-      <div class="box_title">
-        <div class="box_img"></div>
+    <div class="honbab_box">
+        <a href="{% url 'honbabdetail' post.id %}">
+            <div class="box_title">
+                <div class="box_img">
+                    <!-- B : user profile img 나와야함 -->
+                </div>
 
-        <div class="box_text_wrap">
-          <!-- 글 목록에서 작성자의 닉네임과 제목 보여줌 -->
-          <div class="box_name">{{post.author.nickname}}</div>
-          <div class="box_content_name">{{ post.title }}</div>
+                <div class="box_text_wrap">
+                    <!-- 글 목록에서 작성자의 닉네임과 제목 보여줌 -->
+                    <div class="box_Username">김얼롱얼롱얼롱얼롱</div>
+                    <!-- B : username (글 작성자 닉네임 안 뜸 확인 바람) -->
+                    <!-- {{post.author.nickname}} => 얘가 적용이 안됨 , 김얼롱 자리에 바꿔 넣어야 함 -->
+                    <!-- 이 때 username이 한글 11자 , 영어 15자를 넘어갈경우 CSS 깨지니까 제한 바람 -->
+                    <div class="box_content_title">{{ post.title }}</div>
+
+                </div>
+            </div>
+        </a>
+
+        <!-- 게시물 내용 미리보기 -->
+        <div class="box_preview">
+            <p>{{ post.body }}</p>
         </div>
-      </div>
-    </a>
 
-    <div class="box_preview">
-      <p>{{ post.body }}</p>
+        <div class="box_info">
+            <div class="box_info_map_wrap">
+                <i class="fa-solid fa-location-dot"></i>
+                <span class="contents_location">위치 : {{ post.location }}</span>
+                <!-- B : 한글 19자까지만 입력 제한 걸어주세요 아니면 CSS 엉망 됨 -->
+            </div>
+
+            <div class="box_info_icon_wrap">
+                <!-- 하트, 댓글수(@@@미구현@@@) -->
+                <i class="fa-solid fa-heart fa-lg"></i>
+                <span>123</span>
+                <i class="fa-solid fa-comment fa-lg"></i>
+                <span>456</span>
+            </div>
+        </div>
     </div>
 
-    <div class="box_info">
-      <div class="box_info_map_wrap">
-        <i class="fa-solid fa-location-dot"></i>
-        <span>위치 : {{ post.location }}</span>
-      </div>
 
-      <div class="box_info_icon_wrap">
-        <!-- 하트, 댓글수(@@@미구현@@@) -->
-        <i class="fa-solid fa-heart fa-lg"></i>
-        <span>123</span>
-        <i class="fa-solid fa-comment fa-lg"></i>
-        <span>456</span>
-      </div>
+
+    <!-- B : 우측 박스 내용이 아예 바꼈음
+       'home(수정후)' 피그마 UI 확인 해보면,
+        인기 게시물을 랜덤으로 띄워야 함.
+        이미지와 게시글을!!!!
+    -->
+
+
+
+    <!-- popular box-->
+
+
+    <div class="right_popular_box">
+        <h2 class="popular_contents_title">인기 게시물</h2>
+        <div class="popular_info_wrap">
+            <!-- B : 아래 popular_contents_img에  '게시물 대표 사진'이 와야 함 (임의로 넣어뒀으니 바꾸기)-->
+            <div class="popular_contents_img">
+                <img src="/static/img/restaurant.jpeg" alt="">
+            </div>
+
+            <div class="popular_contents_text_wrap">
+                <!-- B : 아래 popular_contetns_title에 '가게 명'이 와야 함 (오설록 카페 대신 넣어주기, 글자수 제한 14글자) -->
+                <div class="popular_contents_spacetitle">오설록 카페</div>
+                <!-- B : 아래 popular_name에 'user의 닉네임'이 와야 함 (이얼롱 대신 넣어주기 , 글자수 제한 14글자)-->
+                <div class="popular_name">이얼롱</div>
+
+            </div>
+
+        </div>
+
     </div>
-  </div>
-
-  <!-- popular box(@@@미구현@@@) -->
-
-  <div class="popular_box">
-    <h2>인기 얼롱인</h2>
-
-    <div class="popular_info_wrap">
-      <div class="popular_img"></div>
-      <div class="popular_name">이얼롱</div>
-    </div>
-
-    <div class="popular_follow_wrap">
-      <div class="popular_follow_col">
-        <div>게시글수</div>
-        <div>180</div>
-      </div>
-
-      <div class="popular_follow_col">
-        <div>팔로워</div>
-        <div>100</div>
-      </div>
-
-      <div class="popular_follow_col">
-        <div>팔로잉</div>
-        <div>50</div>
-      </div>
-    </div>
-  </div>
 </div>
+
+
+
+
 
 {% endfor %} {% endif %} {% endblock %}
