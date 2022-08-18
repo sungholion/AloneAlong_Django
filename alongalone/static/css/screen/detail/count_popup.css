@@ -1,0 +1,95 @@
+/* 새싹 후원 팝업 */
+
+/* 팝업 */
+.content {
+    width: 489px;
+    height: 260px;
+    background-color: black;
+    text-align: center;
+    color: white;
+    padding-top: 56px;
+    margin: 307px 0 0 480px;
+
+    background: rgba(10, 10, 10, 0.95);
+    border: 1px solid #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+
+}
+
+.letter {
+    justify-content: center;
+    padding-bottom: 27px;
+    border-bottom: 1px solid white;
+}
+
+.top {
+    margin-bottom: 27px;
+}
+
+.how_much {
+    color: rgba(204, 249, 197, 0.95);
+}
+
+
+label {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 34px;
+    text-align: center;
+
+}
+
+.title {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 34px;
+    text-align: center;
+}
+
+
+.Btn {
+    box-sizing: border-box;
+    border-width: 1px 0px 1px 1px;
+    border-style: solid;
+    border-color: #FFFFFF;
+    justify-content: center;
+}
+
+.cancelBtn {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 37px;
+    text-align: center;
+    border: none;
+    border-right: 1px solid white;
+    background-color: transparent;
+    color: white;
+    /* padding-right: 100px; */
+    padding: 15px 100px 15px 0;
+}
+
+.confrimBtn {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 37px;
+    text-align: center;
+    border: none;
+    background-color: transparent;
+    color: rgba(204, 249, 197, 0.95);
+    /* padding-left: 100px; */
+    padding: 15px 0 15px 100px;
+}
+
+/* .letter {
+    margin: 56px 0 0 100px;
+
+} */
