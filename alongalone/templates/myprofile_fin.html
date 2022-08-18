@@ -24,7 +24,11 @@
         <div class="profile_left" style="margin-top: 25px;">
             <!-- B : 사용자 사진 -->
             <div class="profile_bg green">
-                <span class="profile_img"></span>
+                <span class="profile_img">
+                    {% if user.profilePhoto %}
+                    <img class="size" src="{{user.profilePhoto.url}}" alt="">
+                    {% endif %}
+                </span>
             </div>
         </div>
 
