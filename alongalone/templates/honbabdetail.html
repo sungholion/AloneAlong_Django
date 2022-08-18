@@ -16,84 +16,115 @@ detailpost
 <!-- 전체 테두리 -->
 <div class="scrollWrap">
 
-    <!-- left content -->
-    <!-- 왼쪽 박스 -->
-    <div class="left_box">
-        <div class="total_post_btn"><a href="{% url 'index' %}"><i class="fa-solid fa-chevron-left"></i>전체 게시물 보기</a>
-        </div>
-
-        <!-- B : 여기(h1)에 게시물 제목이 와야 함!!! -->
-        <h1 class="postTitle">{{ blog_detail.title }}</h1>
-        <!-- B : h5에 작성 날짜가 와야 함 -->
-        <h5 class="postDate"> 작성 날짜 {{ blog_detail.date }} <i class="fa-regular fa-heart">99</i> <i
-                class="fa-regular fa-comment">12</i></h5>
-        <!-- 하트버튼이랑 댓글창 여기 h5 옆에!! -->
-        <!-- 하트 누르면 count js로 해야 함! -->
-
-        <!-- B : detail_post_img의 src에 게시물 상세 이미지가 와야 함 -->
-        {% if blog_detail.photo %}
-        <img class="detail_post_img" src="{{ blog_detail.photo.url }}" alt="">
-        <!-- B : p에 게시물 내용 와야 함 -->
-        <p class="postContent">
-            {{ blog_detail.body }}
-        </p>
-
-
-        {% endif %}
-
-
-
-        <!-- 공감 & 댓글 버튼 -->
-
-        <div class="btnWrap">
-            <!-- 공감 버튼  -->
-            <div class="heart_btn">
-                <i class="fa-regular fa-heart "></i>
-                <div>99</div>
+    <!-- 좌측 박스를 상하로 정렬하기 위함 -->
+    <div class="left_box_wrap">
+        <!-- left content -->
+        <!-- 왼쪽 박스 -->
+        <div class="left_box">
+            <div class="total_post_btn"><a href="{% url 'index' %}"><i class="fa-solid fa-chevron-left"></i>전체 게시물
+                    보기</a>
             </div>
 
+            <!-- B : 여기(h1)에 게시물 제목이 와야 함!!! -->
+            <h1 class="postTitle">{{ blog_detail.title }}</h1>
+            <!-- B : h5에 작성 날짜가 와야 함 -->
+            <h5 class="postDate"> 작성 날짜 {{ blog_detail.date }} <i class="fa-regular fa-heart">99</i> <i
+                    class="fa-regular fa-comment">12</i></h5>
+            <!-- 하트버튼이랑 댓글창 여기 h5 옆에!! -->
+            <!-- 하트 누르면 count js로 해야 함! -->
 
-            <!-- 댓글 버튼  -->
+            <!-- B : detail_post_img의 src에 게시물 상세 이미지가 와야 함 -->
+            {% if blog_detail.photo %}
+            <img class="detail_post_img" src="{{ blog_detail.photo.url }}" alt="">
+            <!-- B : p에 게시물 내용 와야 함 -->
+            <p class="postContent">
+                {{ blog_detail.body }}
+            </p>
 
-            <div class="comment_Btn">
-                <i class="fa-solid fa-comment fa-2x"></i>
 
-                <div class="comment_Btn_num_Wrap">
-                    <span>
-                        12
-                    </span>
-                    <i id="comment_down" class="fa-solid fa-chevron-down "></i>
+            {% endif %}
+
+
+
+            <!-- 공감 & 댓글 버튼 -->
+
+            <div class="btnWrap">
+                <!-- 공감 버튼  -->
+                <div class="heart_btn">
+                    <i class="fa-regular fa-heart "></i>
+                    <div>99</div>
                 </div>
 
 
+                <!-- 댓글 버튼  -->
+
+                <div class="comment_Btn">
+                    <i class="fa-solid fa-comment fa-2x"></i>
+
+                    <div class="comment_Btn_num_Wrap">
+                        <span>
+                            12
+                        </span>
+                        <i id="comment_down" class="fa-solid fa-chevron-down "></i>
+                    </div>
+
+
+                </div>
+
             </div>
 
+
+            <!-- comment 창 -->
+            <div class="comment commentHidden">
+                <!-- comment창 -->
+                <!-- 수정버튼 -->
+                <a class="changeComment" style="color: white;"
+                    href="{% url 'honbabdetail_update' blog_detail.id %}">수정</a>
+                <!-- 삭제버튼 -->
+                <a class="removeComment" style="color: white;"
+                    href="{% url 'honbabdetail_delete' blog_detail.id %}">삭제</a>
+                <!-- 댓글 여기-->
+                <form class="commentForm" method="post" action="{% url 'create_comment' blog_detail.id %}">
+                    {%csrf_token%}
+                    {{comment_form}}
+                    <!-- input이 제출 버튼임! -->
+                    <input type="submit">
+                </form>
+
+
+
+                {% for comment in blog_detail.comment_set.all %}
+                <p id="comment_Reply">{{comment}}</p>
+                <br>
+                {% endfor %}
+
+            </div>
+
+
+
+            <!-- 댓글 버튼 관련 js -->
+            <script>
+                const commentBtn = document.getElementById("comment_down");
+                const comment = document.querySelector(".comment")
+
+                function toggle() {
+                    commentBtn.classList.toggle("fa-chevron-down")
+
+
+                    comment.classList.toggle("commentHidden");
+                }
+
+
+
+
+
+                commentBtn.addEventListener("click", toggle);
+            </script>
+
+
+
         </div>
 
-
-        <!-- comment 창 -->
-        <div class="comment commentHidden">
-            <!-- comment창 -->
-            <!-- 수정버튼 -->
-            <a class="changeComment" style="color: white;" href="{% url 'honbabdetail_update' blog_detail.id %}">수정</a>
-            <!-- 삭제버튼 -->
-            <a class="removeComment" style="color: white;" href="{% url 'honbabdetail_delete' blog_detail.id %}">삭제</a>
-            <!-- 댓글 여기-->
-            <form class="commentForm" method="post" action="{% url 'create_comment' blog_detail.id %}">
-                {%csrf_token%}
-                {{comment_form}}
-                <!-- input이 제출 버튼임! -->
-                <input type="submit">
-            </form>
-
-
-
-            {% for comment in blog_detail.comment_set.all %}
-            <p id="comment_Reply">{{comment}}</p>
-            <br>
-            {% endfor %}
-
-        </div>
 
         <!-- B : 해당 게시물의 장소가 와야 함 -->
         <!-- B : detail_location_col 자식요소인 h4에 주소, h5에 운영시간-->
@@ -110,30 +141,7 @@ detailpost
 
         </div>
 
-        <!-- 댓글 버튼 관련 js -->
-        <script>
-            const commentBtn = document.getElementById("comment_down");
-            const comment = document.querySelector(".comment")
-
-            function toggle() {
-                commentBtn.classList.toggle("fa-chevron-down")
-
-
-                comment.classList.toggle("commentHidden");
-            }
-
-
-
-
-
-            commentBtn.addEventListener("click", toggle);
-        </script>
-
-
-
     </div>
-
-
 
 
     <!-- scroll -->
@@ -331,17 +339,6 @@ detailpost
         const randomColor = colors[Math.floor(Math.random() * colors.length)];
         adBox.style.background = `${randomColor}`;
     }, 2000);
-
-
-    // 팝업 관련 js
-    const place = document.querySelector("#s_popup");
-    const popup = document.getElementById("popup")
-
-    function showRocation() {
-        popup.classList.remove("hidden");
-    }
-
-    place.addEventListener("click", showRocation)
 </script>
 
 

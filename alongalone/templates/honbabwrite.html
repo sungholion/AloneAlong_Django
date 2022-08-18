@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    혼밥게시판
+혼밥게시판
 {% endblock %}
 
 {% block css %}
@@ -30,8 +30,8 @@
                     <div class="titlecategoryfilelocation">
                         <div class="title">
                             <label>Title</label>
-                            <input type=" text" class="titleinput" placeholder="제목을 입력해주세요." name="title"
-                                maxlength="80" required="required" pattern=".{4,100}">
+                            <input type=" text" class="titleinput" placeholder="제목을 입력해주세요." name="title" maxlength="80"
+                                required="required" pattern=".{4,100}">
                         </div>
 
                         <div class="category">
@@ -60,12 +60,13 @@
                         <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
                         <!--주소강제 api 스크립트 적용-->
                         <script>
-                            window.onload = function(){
-                                document.getElementById("location").addEventListener("click", function(){
+                            window.onload = function () {
+                                document.getElementById("location").addEventListener("click", function () {
                                     //주소텍스트박스를 클릭 시 별도의 주소적는 창 열림
                                     new daum.Postcode({
-                                        oncomplete: function(data) { //선택시 입력값 세팅
-                                            document.getElementById("location").value = data.address; // 주소 넣기
+                                        oncomplete: function (data) { //선택시 입력값 세팅
+                                            document.getElementById("location").value = data
+                                                .address; // 주소 넣기
                                         }
                                     }).open();
                                 });
@@ -85,7 +86,7 @@
                     <div class="btn_bg">
                         <button type="submit" class="register">작성하기</button>
                     </div>
-                    
+
                 </div>
 
             </form>

@@ -1,9 +1,14 @@
+body{
+    background-color: black;
+}
+
 .container_title {
     font-size: 20px;
 }
 
 
 .container_wrap {
+    background-color: black;
     display: flex;
     justify-content: center;
 }
@@ -12,7 +17,7 @@
     background-color: #2C2D2C;
     margin-top: 150px;
     width: 80%;
-    height: 620px;
+    height: 700px;
     
 }
 
@@ -28,9 +33,7 @@
     height: 500px;
 }
 
-.form-wrap {
-    background-color: tomato;
-}
+
 
 /* 제목,카테고리,첨부파일, 위치  */
 
