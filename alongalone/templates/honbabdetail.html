@@ -314,42 +314,178 @@ detailpost
 
 
 <!-- spon pop up -->
+<div class="modal">
 
-<div id="popup" class="hidden">
-    <div class="content">
-        <!-- B : 보유새싹 계산 -->
-        <div class="how_much">
-            내 보유새싹 : {{user.cash}}잎
-        </div><br>
-        <form action="{% url "donate" blog_detail.id %}" method="POST">
-            {% csrf_token %}
-            <div class="details">
-                <!-- B : 사용한 새싹 계산 -->
-                <div class="used">새싹 <input type="hidden" name="money" id="money"><span id="money_display"></span>잎을
-                    사용하여</div>
-                <br>
-                <!-- B : 게시글 제목 가져오기 -->
-                <div class="title">{{blog_detail.title}}</div><br>
-                <div class="used">콘텐츠를 후원합니다.</div><br>
-            </div>
-            <div class="Btn">
-                <button class="cancelBtn">취소</button>
-                <button class="confrimBtn" type=submit>확인</button>
-            </div>
 
-        </form>
+
+
+    <div id="popup">
+        <div class="content">
+            <!-- B : 보유새싹 계산 -->
+            <div class="how_much">
+                내 보유새싹 : {{user.cash}}잎
+            </div><br>
+            <form>
+                {% csrf_token %}
+                <div class="details">
+                    <!-- B : 사용한 새싹 계산 -->
+                    <div class="used">새싹 <input type="hidden" name="money" id="money"><span id="money_display"></span>잎을
+                        사용하여</div>
+                    <br>
+                    <!-- B : 게시글 제목 가져오기 -->
+                    <div class="title">{{blog_detail.title}}</div><br>
+                    <div class="used">콘텐츠를 후원합니다.</div><br>
+                </div>
+                <div class="Btn">
+                    <button class="cancelBtn">취소</button>
+                    <button class="confrimBtn" type=submit>확인</button>
+                </div>
+
+            </form>
+        </div>
     </div>
+
 </div>
 
-<!-- js -->
+<!-- popup js -->
+<script>
+    const sponBtn = document.getElementById("spon_btn") //후원하기 버튼
+
+
+    const closeBtn = document.querySelector(".Btn") // 취소, 확인 버튼
+
+    const modal = document.querySelector('.modal');
+
+    sponBtn.addEventListener("click", () => {
+        modal.style.display = 'block';
+    });
+</script>
+
+
+
+
+<!-- popup css -->
+
+<style>
+    /* 팝업 */
+    .content {
+        width: 489px;
+        height: 260px;
+        background-color: black;
+        text-align: center;
+        color: white;
+        padding-top: 56px;
+        margin: 307px 0 0 480px;
+
+        background: rgba(10, 10, 10, 0.95);
+        border: 1px solid #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+
+    }
+
+    .letter {
+        justify-content: center;
+        padding-bottom: 27px;
+        border-bottom: 1px solid white;
+    }
+
+    .top {
+        margin-bottom: 27px;
+    }
+
+    .how_much {
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 25px;
+        line-height: 34px;
+        text-align: center;
+        color: rgba(204, 249, 197, 0.95);
+    }
+
+
+    .used {
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 25px;
+        line-height: 34px;
+        text-align: center;
+
+    }
+
+    .title {
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 25px;
+        line-height: 34px;
+        text-align: center;
+    }
+
+
+    .Btn {
+        box-sizing: border-box;
+        border-width: 1px 0px 1px 1px;
+        border-style: solid;
+        border-color: #FFFFFF;
+        justify-content: center;
+    }
+
+    .cancelBtn {
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 27px;
+        line-height: 37px;
+        text-align: center;
+        border: none;
+        border-right: 1px solid white;
+        background-color: transparent;
+        color: white;
+        /* padding-right: 100px; */
+        padding: 15px 100px 15px 0;
+    }
+
+    .confrimBtn {
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 27px;
+        line-height: 37px;
+        text-align: center;
+        border: none;
+        background-color: transparent;
+        color: rgba(204, 249, 197, 0.95);
+        /* padding-left: 100px; */
+        padding: 15px 0 15px 100px;
+    }
+
+    /* 후ㅣ영 추가 */
+
+
+    .modal {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        display: none;
+
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+</style>
+
+<!-- ad box js  -->
 
 <script>
-    // random color play
+    /* // random color play */
 
     const adBox = document.getElementById("adBox")
-
-    const colors = [
-        "#ef5777",
+    const colors = ["#ef5777",
         "#575fcf",
         "#4bcffa",
         "#34e7e4",
@@ -370,11 +506,12 @@ detailpost
     ];
 
     setInterval(() => {
-        const randomColor = colors[Math.floor(Math.random() * colors.length)];
-        adBox.style.background = `${randomColor}`;
-    }, 2000);
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+            adBox.style.background = `${randomColor}`;
+        }
+
+        , 2000);
 </script>
-
-
 
 {% endblock %}
