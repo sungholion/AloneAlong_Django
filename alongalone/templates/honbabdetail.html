@@ -129,19 +129,23 @@ detailpost
         <!-- B : 해당 게시물의 장소가 와야 함 -->
         <!-- B : detail_location_col 자식요소인 h4에 주소, h5에 운영시간-->
         <div class="detail_location">
-            <div class="location_Wrap">
-                <div class="locationIcon_wrap">
-                    <i class="fa-solid fa-location-dot fa-2x"></i>
+            <a href="{%url "honbabdetail_map" blog_detail.id %}">
+                <div class="location_Wrap">
+                    <div class="locationIcon_wrap">
+                        <i class="fa-solid fa-location-dot fa-2x"></i>
+                    </div>
+                    <span class="detail_location_col">
+                        <h4>{{ blog_detail.location }}</h4>
+                        <h5>9:00 ~ 22:00</h5><!-- 아직 지도랑 연결 안됌 -->
+                    </span>
                 </div>
-                <span class="detail_location_col">
-                    <h4>{{ blog_detail.location }}</h4>
-                    <h5>9:00 ~ 22:00</h5><!-- 아직 지도랑 연결 안됌 -->
-                </span>
-            </div>
-
+            </a>
         </div>
 
     </div>
+
+
+
 
 
     <!-- scroll -->
@@ -164,7 +168,9 @@ detailpost
             <div class="user_profile">
                 <div class="user_profile_img">
                     <!-- B : 사용자 이미지 나오게-->
-                    <img src="/static/img/logo.png" alt="">
+                    {% if blog_detail.photo %}
+                    <img src="{{blog_detail.photo.url}}" alt="">
+                    {% endif %}
                 </div>
                 <div class="user_profile_col">
                     <div class="user_profile_name"> 사용자이름{{ user_author.nickname }}</div>
@@ -276,6 +282,7 @@ detailpost
                         element.value = Number(element.value) + Number(money);
                     }
                 </script>
+
                 <script>
                     function buttonclick_displaymoney() {
                         document.getElemenetById("money").innerText = 500 + Number(document.getElementById(
@@ -283,6 +290,7 @@ detailpost
 
                     }
                 </script>
+
                 </form>
             </div>
 
@@ -305,11 +313,6 @@ detailpost
 
 </div>
 
-
-
-
-
-<!-- map pop up -->
 
 
 
@@ -435,6 +438,8 @@ detailpost
         border-style: solid;
         border-color: #FFFFFF;
         justify-content: center;
+        border-bottom: none;
+        border-left: none;
     }
 
     .cancelBtn {
