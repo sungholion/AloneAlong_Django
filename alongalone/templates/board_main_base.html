@@ -49,15 +49,19 @@
       <img src="/static/img/saessak.png" alt="" />
       <img src="/static/img/alarm.png" alt="" />
       <a href="{% url 'myprofile_fin'%}">
-        <div id="mypage"><i class="fa-solid fa-user fa-lg"></i></div>
+        <div id="mypage">
+          {% if user.profilePhoto %}
+          <img src="{{user.profilePhoto.url}}" alt="">
+          {% endif %}
+        </div>
       </a>
     </span>
   </header>
   {% block body %}
-  <!-- 이 부분에 각 페이지마다 기능들이 들어감. -->
-  {% endblock %}
-  <!--  icon 적용 -->
-  <script src="https://kit.fontawesome.com/73b35ca8d6.js" crossorigin="anonymous"></script>
+  <!-- <!— 이 부분에 각 페이지마다 기능들이 들어감. —> -->
+    {% endblock %}
+    <!-- <!— icon 적용 —> -->
+      <script src="https://kit.fontawesome.com/73b35ca8d6.js" crossorigin="anonymous"></script>
 
 
 </body>
