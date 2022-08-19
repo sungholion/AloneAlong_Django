@@ -1,3 +1,5 @@
+# models.py 해커톤 당일 기준 변동 사항 - heart 필드추가 (프론트 영향 x)
+# comment의 comment_user 필드 추가 - 댓글 입력자 닉네임 표시(상의 필요) + honbabdetail.html도 봐야함.
 from django.db import models
 from accountapp.models import User
 
@@ -29,5 +31,6 @@ class Comment(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     post = models.ForeignKey(Blog, null=True, blank=True, on_delete=models.CASCADE)
     comment_user = models.ForeignKey(User, on_delete = models.CASCADE, null=True)
+
     def __str__(self):
         return self.comment

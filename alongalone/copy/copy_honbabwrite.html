@@ -1,0 +1,103 @@
+{% extends 'board_main_base.html' %}
+{% load static %}
+
+{% block title %}
+혼밥게시판
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="/static/css/screen/write/write_back.css">
+{% endblock %}
+
+{% block body %}
+
+<!-- 글쓰기 화면 -->
+
+<div class="container_wrap">
+    <div class="container">
+        <h2 class="container_title">혼밥 게시판 글쓰기</h2>
+        <hr class="line">
+
+        <div class="container_box">
+            <form action="{% url 'create' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <!-- 보안관련임. 무시해도 됌 -->
+
+                <!-- <form action="write.jsp" method="post"> -->
+                <div class="form_wrap">
+
+                    <!-- 제목,카테고리,첨부파일, 위치 -->
+                    <div class="titlecategoryfilelocation">
+                        <div class="title">
+                            <label>Title</label>
+                            <input type=" text" class="titleinput" placeholder="제목을 입력해주세요." name="title" maxlength="80"
+                                required="required" pattern=".{4,100}">
+                        </div>
+
+                        <div class="category">
+                            <!-- form 태그는 제출을 해야 값이 저장되서, 선택만 해도 되는 select 사용 -->
+                            <label>Category</label><br>
+                            <select name="category" id="catetgory" class="category_select">
+                                <option value="1">혼밥</option>
+                                <option value="2">혼술</option>
+                                <option value="3">혼카페</option>
+                                <option value="4">혼놀</option>
+                            </select>
+                        </div>
+                        <br>
+
+                        <div class="file">
+                            <label>attached file</label>
+                            <input type="file" name="photo" class="photo">
+                        </div>
+
+                        <div class="space">
+                            <label>Location</label>
+                            <input type="text" class="form-control title1" id="location" placeholder="클릭해주세요."
+                                name="location" maxlength="20" placeholder="장소 입력(1글자 이상)" required="required">
+                        </div>
+                        <!--아래 줄은 주소강제api 스크립트-->
+                        <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+                        <!--주소강제 api 스크립트 적용-->
+                        <script>
+                            window.onload = function () {
+                                document.getElementById("location").addEventListener("click", function () {
+                                    //주소텍스트박스를 클릭 시 별도의 주소적는 창 열림
+                                    new daum.Postcode({
+                                        oncomplete: function (data) { //선택시 입력값 세팅
+                                            document.getElementById("location").value = data
+                                                .address; // 주소 넣기
+                                        }
+                                    }).open();
+                                });
+                            }
+                        </script>
+                    </div>
+
+                    <!-- 내용작성란 -->
+                    <div class="content">
+                        <label>Contents</label>
+                        <div class="content_box_wrap">
+                            <textarea rows="3" id="body" name="body" placeholder="내용 작성"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- 작성하기 버튼 -->
+                    <div class="btn_bg">
+                        <button type="submit" class="register">작성하기</button>
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+
+
+
+</div>
+
+</div>
+{% endblock %}
