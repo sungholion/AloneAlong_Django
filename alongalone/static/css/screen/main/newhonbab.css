@@ -142,6 +142,7 @@ body {
 }
 
 
+
 .box_info_icon_wrap {
     display: flex;
     align-items: center;
@@ -199,12 +200,12 @@ body {
 }
 
 .popular_contents_img img {
-    width: 300px;
+    width: 320px;
     height: 230px;
     object-fit: cover;
     margin-top: 0px;
     background-repeat: no-repeat;
-    border-radius: 5px 5px 0 0;
+    background-image: url("");
 }
 
 

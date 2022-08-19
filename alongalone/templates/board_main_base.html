@@ -5,70 +5,61 @@
 -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      {% block title %} <!-- 여기에 각 페이지마다 주소창 제목이 들어감. -->
-      {%endblock %}
-    </title>
 
-    <!-- favicon -->
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/static/img/favicon.png"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    {% block title %}
+    <!-- 여기에 각 페이지마다 주소창 제목이 들어감. -->
+    {%endblock %}
+  </title>
 
-    <link rel="stylesheet" href="/static/css/style.css" />
-    {% block css %}
-    <!-- 주의! 이 아래에 각 html마다 별도의 css가 추가될때가 있음. 맨 앞에 주석에 달아놓을거임 -->
-    {% endblock %}
-  </head>
+  <!-- favicon -->
+  <link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicon.png" />
 
-  <body>
-    <!-- header -->
-    <header>
-      <a class="header-col1" href="#">
-        <div class="header-col-img_wrap">
-          <img class="header-logo" src="/static/img/logowhite.PNG" />
-          <div class="header-title">
-            <span>alone</span>
-            <span>along</span>
-          </div>
+  <link rel="stylesheet" href="/static/css/style.css" />
+  {% block css %}
+  <!-- 주의! 이 아래에 각 html마다 별도의 css가 추가될때가 있음. 맨 앞에 주석에 달아놓을거임 -->
+  {% endblock %}
+</head>
+
+<body>
+  <!-- header -->
+  <header>
+    <a class="header-col1" href="#">
+      <div class="header-col-img_wrap">
+        <img class="header-logo" src="/static/img/logowhite.PNG" />
+        <div class="header-title">
+          <span>alone</span>
+          <span>along</span>
         </div>
-      </a>
-
-      <div class="header-col2">
-        <a href="{%url 'index' %}">혼밥</a>
-        <a href="honsul.html">혼술</a>
-        <a href="/html/home/honcafe.html">혼카페</a>
-        <a href="honmap.html">혼맵</a>
       </div>
+    </a>
 
-      <span class="header-col3">
-        <img src="/static/img/saessak.png" alt="" />
-        <img src="/static/img/alarm.png" alt="" />
-        <a href="{% url 'myprofile_fin'%}">
-          <div id="mypage">
-            {% if user.profilePhoto %}
-            <img src="{{user.profilePhoto.url}}" alt="">
-            {% endif %}
-          </div>
-        </a>
-      </span>
-    </header>
-    {% block body %}
-    <!-- 이 부분에 각 페이지마다 기능들이 들어감. -->
-    {% endblock %}
-    <!--  icon 적용 -->
-    <script
-      src="https://kit.fontawesome.com/73b35ca8d6.js"
-      crossorigin="anonymous"
-    ></script>
+    <div class="header-col2">
+      <a href="{%url 'index' %}">혼밥</a>
+      <a href="honsul.html">혼술</a>
+      <a href="/html/home/honcafe.html">혼카페</a>
+      <a href="honmap.html">혼맵</a>
+    </div>
 
-   
-  </body>
+    <span class="header-col3">
+      <img src="/static/img/saessak.png" alt="" />
+      <img src="/static/img/alarm.png" alt="" />
+      <a href="{% url 'myprofile_fin'%}">
+        <div id="mypage"><i class="fa-solid fa-user fa-lg"></i></div>
+      </a>
+    </span>
+  </header>
+  {% block body %}
+  <!-- 이 부분에 각 페이지마다 기능들이 들어감. -->
+  {% endblock %}
+  <!--  icon 적용 -->
+  <script src="https://kit.fontawesome.com/73b35ca8d6.js" crossorigin="anonymous"></script>
+
+
+</body>
+
 </html>

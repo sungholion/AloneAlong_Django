@@ -108,7 +108,7 @@ a {
     height: 45px;
     border-radius: 50%;
     object-fit: cover;
-    background: no-repeat;
+    background-repeat: no-repeat;
 }
 
 #mypage {

@@ -105,7 +105,7 @@
         <div class="popular_info_wrap">
             <!-- B : 아래 popular_contents_img에  '게시물 대표 사진'이 와야 함 (임의로 넣어뒀으니 바꾸기)-->
             <div class="popular_contents_img">
-                <img src="/static/img/restaurant.jpeg" alt="">
+                <img id="popular_random_img" src="" alt="">
             </div>
 
             <div class="popular_contents_text_wrap">
@@ -119,6 +119,29 @@
         </div>
 
     </div>
+
+
+    <!-- 인기 게시물 랜덤 팝업 -->
+
+    <script>
+        const randomImg = document.querySelector(".popular_contents_img img")
+        const images = [
+            "honbab1.jpg", "honbab2.jpg", "restaurant.jpeg", "honbab3.jpg", "honbab4.jpg", "honbab5.jpg"
+        ]
+
+        const chosenImage = images[Math.floor(Math.random() * images.length)]
+
+        // js에서 요소 만들어서 그걸 html에 추가하는 법
+
+        randomImg.src = `/static/img/${chosenImage}`
+    </script>
+
+
+
+
+
+
+
 </div>
 
 

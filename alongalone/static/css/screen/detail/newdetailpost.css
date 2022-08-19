@@ -1,9 +1,10 @@
 
-    /* 여기서부터 style tag 가져옴 수정 다 끝나면 위에는 지워버리셈 */
-
-
     body {
         background-color: black;
+    }
+
+    .header-col2 a :first-child{
+        color: white;
     }
 
     .Postcategory {
@@ -13,7 +14,7 @@
         margin-top: 100px;
         position: absolute;
         left: 110px;
-    top: -30px;
+        top: -30px;
 
 
         font-family: 'Noto Sans HK';
@@ -32,15 +33,22 @@
         /* post창 배경색임 */
         opacity: 80%;
         border: 1px solid white;
-        width: 80%;
+        width: 1000px;
         height: 1000px;
+        
+        margin: 250px 0px;
+        margin-left: 150px;
+        position: relative;
+        left: 25px;
+        margin-bottom: 40px;
+  
+    }
 
-        position: absolute;
-        top: 150px;
 
-        left: 50px;
-        right: 50px;
-        bottom: 500px;        
+
+    .left_box_wrap{
+        display: flex;
+        flex-direction: column;
     }
 
 
@@ -222,6 +230,7 @@
         height: 100px;
         border: 2.5px solid white;
         color: white;
+        margin-left: 80px;
     }
 
 
@@ -244,9 +253,7 @@
         margin-top: 10px;
         background-color: #A7CCA2;
     }
-    a:visited {
-        all: unset;
-    }
+    
     /* 수정하기 버튼 */
 
 .commentHidden {
@@ -289,12 +296,14 @@
     /* 위치 정보 */
     .detail_location {
         background-color: var(--mint);
-        width: 800px;
+        width: 780px;
         height: 70px;
         position: relative;
         border-radius: 10px;
         margin-top: 20px;
-    
+        position: relative;
+        margin-left: 50px;
+
     }
 
     .location_Wrap {
@@ -302,6 +311,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
+         
+       
     }
 
     .detail_location_col {
