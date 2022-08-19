@@ -1,0 +1,172 @@
+body{
+    background-color: black;
+}
+
+.container_title {
+    font-size: 20px;
+}
+
+
+.container_wrap {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    background-color: #2C2D2C;
+    margin-top: 150px;
+    width: 80%;
+    height: 700px;
+    
+}
+
+.container_title {
+    padding-top: 20px;
+    padding-left: 20px;
+    color: white;
+    opacity: 50%;
+}
+
+.container_box {
+    margin-left: 20px;
+    height: 500px;
+}
+
+
+
+/* 제목,카테고리,첨부파일, 위치  */
+
+.titlecategoryfilelocation{
+    display: flex;
+    justify-content: space-evenly
+}
+
+/* 제목 */
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    border-bottom: 1px solid white;
+    padding-bottom: 10px;
+}
+
+.title label {
+    color: white;
+    margin-right: 30px;
+}
+
+.title input {
+    width: 400px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: lightgrey;
+
+}
+
+/* 카테고리 */
+.category{
+    height:50px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: white;
+    border-bottom: 1px solid white;
+    padding: 0;
+}
+
+.category label{
+    margin-right: 20px;
+
+}
+.category select {
+    border: none;
+    border-radius: 5px;
+    background-color: lightgrey;
+    color: rgba(0,0,0,0.7);
+    padding: 5px;
+    align-items: center;
+}
+
+/* 첨부파일 */
+.file {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid white;
+    width: 200px;
+
+}
+
+.file label {
+    color: white;
+    width: 180px;
+}
+
+.file input {
+    color: white;
+
+}
+/* 장소 */
+
+.space {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    border-bottom: 1px solid white;
+}
+
+.space input {
+    width: 100px;
+}
+/* 내용작성 */
+
+.content {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.content label {
+    color: white;
+    margin-left: 70px;
+}
+
+.content_box_wrap {
+    display: flex;
+    margin-top: 10px;
+
+  
+  justify-content: center;
+}
+.content textarea {
+    border-radius: 5px;
+    border: none;
+    background-color: white;
+    height: 400px;
+    width: 1000px;
+}
+
+
+/* 작성하기 버튼 */
+
+.btn_bg {
+    display: flex;
+    justify-content: center;
+}
+.register {
+    padding: 10px;
+    margin-top: 10px;
+    width: 1000px;
+    background-color:rgb(213, 213, 213);
+    border:none;
+    border-radius: 4px;
+    font-size: 15px;
+    box-shadow: 0px 3px 3px lightgray;
+}
+.register:hover {
+    background-color: gray;
+    color: white;
+}
