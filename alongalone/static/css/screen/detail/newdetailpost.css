@@ -3,6 +3,10 @@
         background-color: black;
     }
 
+    button{
+        all: unset;
+    }
+
     .header-col2 a :first-child{
         color: white;
     }
@@ -35,7 +39,6 @@
         border: 1px solid white;
         width: 1000px;
         height: 1000px;
-        
         margin: 250px 0px;
         margin-left: 150px;
         position: relative;
@@ -424,13 +427,11 @@ hr {
 
 /* 얼롱인 소개  */
 .user_profile{
-    
     display: flex;
     padding: 10px 0px;
     box-sizing: border-box;
     width: 80%;
-    background-color: #A7CCA2;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .user_profile_img img {
@@ -452,23 +453,36 @@ hr {
     padding: 10px 5px;
 }
 
-.user_profile_name {
+.user_profile_col_text {
+    display: flex;
     color:white;
+}
+
+.user_profile_name {
     font-weight: 700;
     margin-bottom: 5px;
+    margin-left: 10px;
 
 }
 /* follow button */
 .user_profile_follow {
-    width: 73px;
+    width: 80px;
     padding: 5px;
+    border-radius: 10px;
+    margin-top: 10px;
+    color: #CCF9C5;
     height: 20px;
-    border: none;
+    border: 1px solid #CCF9C5;
     display: flex;
     align-items: center;
     text-align: center;
     font-size: 11px;
     justify-content: center;
+}
+
+.user_profile_follow:hover {
+    background-color: #6c9d65;
+    color: white;
 }
 /* user_profile_message */
 
@@ -477,13 +491,13 @@ hr {
     height: 30px;
     font-size: 15px;
     margin-bottom: 10px;
-    background-color: #A7CCA2;
+    color: white;
+  
 }
 
 /* 얼롱인에게 새싹 후원 하기 */
 .support_btn {
-    width: 130px;
-
+    width: 150px;
     height: 30px;
     border-radius: 10px;
     border: none;
@@ -491,20 +505,26 @@ hr {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
-    
+    padding: 10px;   
 }
+
 
 
 
 /* 다른 게시물 */
 
+.another_post_text {
+    display: flex;
+    position: relative;
+    left: -5px;
+    color: white;
+}
 
 .another_post_h3 {
     color: white;
     font-size: 18px;
     font-weight: 600;
-    margin-left: 80px;
+    margin-right: 10px;
 }
 .another_post {
     box-sizing: border-box;
@@ -635,9 +655,7 @@ input{
     all: unset;
 }
 
-button{
-    all: unset;
-}
+
 
 .sponsomoneyAdd input {
     
@@ -687,6 +705,8 @@ button{
 
 
 /* 광고,이벤트 이미지 랜덤재생 */
+
+
 
 
 #adBox {

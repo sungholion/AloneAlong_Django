@@ -173,9 +173,16 @@ detailpost
                     {% endif %}
                 </div>
                 <div class="user_profile_col">
-                    <div class="user_profile_name"> 사용자이름{{ user_author.nickname }}</div>
+                    <div class="user_profile_col_text">
+
+                    </div>
+                    <div class="user_profile_col_text">
+                        <label>이름: </label>
+                        <div class="user_profile_name">{{ user_author.nickname }}</div>
+                    </div>
+
                     <!-- B : 사용자 이름 나오게-->
-                    <button class="user_profile_follow">+팔로우</button>
+                    <button class="user_profile_follow"> + 팔로우</button>
                 </div>
             </div>
             <!-- B : 사용자 짧은 소개글 -->
@@ -193,8 +200,12 @@ detailpost
             <!-- 가로 border -->
             <hr>
 
-            <h3 class="another_post_h3"> {{user_author.nickname}}님의 다른 게시물</h3>
-            <!-- B : 해당 유저의 다른 게시글을 띄워야 함 -->
+            <div class="another_post_text">
+                <h3 class="another_post_h3">{{user_author.nickname}}</h3>
+                <label>님의 다른 게시물</label>
+                <!-- B : 해당 유저의 다른 게시글을 띄워야 함 -->
+            </div>
+
             {% for post in current_posts %}
             <!-- 3번 반복함!! -->
             <div class="another_post">
@@ -302,10 +313,14 @@ detailpost
             <hr>
 
             <!-- 광고,이벤트 이미지 랜덤재생 -->
-            <div id="adBox">
+
+            <div class="adTitle" style="color: white; margin-bottom: 20px;"><i class="fa-solid fa-circle-info"></i>혼밥 맛집
+                추천</div>
+
+            <img id="adBox" src="">
 
 
-            </div>
+
 
         </div>
 
@@ -488,39 +503,28 @@ detailpost
     }
 </style>
 
-<!— ad box js —>
+<!-- ad box js  -->
 
-    <script>
-        /* // random color play */
+<script>
+    /* // random color play */
 
-        const adBox = document.getElementById("adBox")
-        const colors = ["#ef5777",
-            "#575fcf",
-            "#4bcffa",
-            "#34e7e4",
-            "#0be881",
-            "#f53b57",
-            "#3c40c6",
-            "#0fbcf9",
-            "#00d8d6",
-            "#05c46b",
-            "#ffc048",
-            "#ffdd59",
-            "#ff5e57",
-            "#d2dae2",
-            "#485460",
-            "#ffa801",
-            "#ffd32a",
-            "#ff3f34"
-        ];
+    const adBox = document.getElementById("adBox")
+    const adphoto = [
+        "pic1.png",
+        "pic2.png",
+        "pic3.png",
+        "pic4.png",
+        "pic5.png",
+        "pic6.png",
+        "pic7.png",
+        "pic8.png",
+        "pic9.png",
+    ];
 
-        setInterval(() => {
-            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    setInterval(() => {
+        const randomAdphoto = adphoto[Math.floor(Math.random() * adphoto.length)];
+        adBox.src = `/static/img/ad/${randomAdphoto}`;
+    }, 1500);
+</script>
 
-            adBox.style.background = `${randomColor}`;
-        }
-
-            , 2000);
-    </script>
-
-    {% endblock %}
+{% endblock %}
