@@ -1,9 +1,36 @@
 /* 새싹 후원 팝업 */
 
+.s_popup_wrap {
+    position: fixed;
+    left: 700px;
+    top: 100px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+
+    /* 숨기기 */
+    z-index: -1;
+    opacity: 0;
+}
+
+.spon_btn {
+    opacity: 1;
+    z-index: 1000;
+    transition: all .3s;
+}
+
+.spon_btn .content {
+    transform: translate(-50%, -50%);
+    transition: all .3s;
+}
+
 /* 팝업 */
 .content {
+    position: relative;
     width: 489px;
-    height: 260px;
+    height: 295px;
+ 
     background-color: black;
     text-align: center;
     color: white;
@@ -14,13 +41,13 @@
     border: 1px solid #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-
 }
+
+
 
 .letter {
     justify-content: center;
     padding-bottom: 27px;
-    border-bottom: 1px solid white;
 }
 
 .top {
@@ -63,6 +90,8 @@
     border-width: 1px 0px 1px 1px;
     border-style: solid;
     border-color: #FFFFFF;
+    border-bottom: none;
+    border-left: none;
     justify-content: center;
 }
 

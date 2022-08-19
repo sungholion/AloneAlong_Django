@@ -36,13 +36,14 @@ detailpost
             <!-- B : detail_post_img의 src에 게시물 상세 이미지가 와야 함 -->
             {% if blog_detail.photo %}
             <img class="detail_post_img" src="{{ blog_detail.photo.url }}" alt="">
+            {% endif %}
             <!-- B : p에 게시물 내용 와야 함 -->
             <p class="postContent">
                 {{ blog_detail.body }}
             </p>
 
 
-            {% endif %}
+            
 
 
 
@@ -129,19 +130,23 @@ detailpost
         <!-- B : 해당 게시물의 장소가 와야 함 -->
         <!-- B : detail_location_col 자식요소인 h4에 주소, h5에 운영시간-->
         <div class="detail_location">
-            <div class="location_Wrap">
-                <div class="locationIcon_wrap">
-                    <i class="fa-solid fa-location-dot fa-2x"></i>
+            <a href="{%url "honbabdetail_map" blog_detail.id %}">
+                <div class="location_Wrap">
+                    <div class="locationIcon_wrap">
+                        <i class="fa-solid fa-location-dot fa-2x"></i>
+                    </div>
+                    <span class="detail_location_col">
+                        <h4>{{ blog_detail.location }}</h4>
+                        <h5>9:00 ~ 22:00</h5><!-- 아직 지도랑 연결 안됌 -->
+                    </span>
                 </div>
-                <span class="detail_location_col">
-                    <h4>{{ blog_detail.location }}</h4>
-                    <h5>9:00 ~ 22:00</h5><!-- 아직 지도랑 연결 안됌 -->
-                </span>
-            </div>
-
+            </a>
         </div>
 
     </div>
+
+
+
 
 
     <!-- scroll -->
@@ -164,12 +169,21 @@ detailpost
             <div class="user_profile">
                 <div class="user_profile_img">
                     <!-- B : 사용자 이미지 나오게-->
-                    <img src="/static/img/logo.png" alt="">
+                    {% if blog_detail.photo %}
+                    <img src="{{blog_detail.photo.url}}" alt="">
+                    {% endif %}
                 </div>
                 <div class="user_profile_col">
-                    <div class="user_profile_name"> 사용자이름{{ user_author.nickname }}</div>
+                    <div class="user_profile_col_text">
+
+                    </div>
+                    <div class="user_profile_col_text">
+                        <label>이름: </label>
+                        <div class="user_profile_name">{{ user_author.nickname }}</div>
+                    </div>
+
                     <!-- B : 사용자 이름 나오게-->
-                    <button class="user_profile_follow">+팔로우</button>
+                    <button class="user_profile_follow"> + 팔로우</button>
                 </div>
             </div>
             <!-- B : 사용자 짧은 소개글 -->
@@ -187,8 +201,12 @@ detailpost
             <!-- 가로 border -->
             <hr>
 
-            <h3 class="another_post_h3"> {{user_author.nickname}}님의 다른 게시물</h3>
-            <!-- B : 해당 유저의 다른 게시글을 띄워야 함 -->
+            <div class="another_post_text">
+                <h3 class="another_post_h3">{{user_author.nickname}}</h3>
+                <label>님의 다른 게시물</label>
+                <!-- B : 해당 유저의 다른 게시글을 띄워야 함 -->
+            </div>
+
             {% for post in current_posts %}
             <!-- 3번 반복함!! -->
             <div class="another_post">
@@ -276,6 +294,7 @@ detailpost
                         element.value = Number(element.value) + Number(money);
                     }
                 </script>
+
                 <script>
                     function buttonclick_displaymoney() {
                         document.getElemenetById("money").innerText = 500 + Number(document.getElementById(
@@ -283,6 +302,7 @@ detailpost
 
                     }
                 </script>
+
                 </form>
             </div>
 
@@ -294,10 +314,14 @@ detailpost
             <hr>
 
             <!-- 광고,이벤트 이미지 랜덤재생 -->
-            <div id="adBox">
+
+            <div class="adTitle" style="color: white; margin-bottom: 20px;"><i class="fa-solid fa-circle-info"></i>혼밥 맛집
+                추천</div>
+
+            <img id="adBox" src="">
 
 
-            </div>
+
 
         </div>
 
@@ -309,72 +333,199 @@ detailpost
 
 
 
-<!-- map pop up -->
 
 
 
 <!-- spon pop up -->
+<div class="modal">
 
-<div id="popup" class="hidden">
-    <div class="content">
-        <!-- B : 보유새싹 계산 -->
-        <div class="how_much">
-            내 보유새싹 : {{user.cash}}잎
-        </div><br>
-        <form action="{% url "donate" blog_detail.id %}" method="POST">
-            {% csrf_token %}
-            <div class="details">
-                <!-- B : 사용한 새싹 계산 -->
-                <div class="used">새싹 <input type="hidden" name="money" id="money"><span id="money_display"></span>잎을
-                    사용하여</div>
-                <br>
-                <!-- B : 게시글 제목 가져오기 -->
-                <div class="title">{{blog_detail.title}}</div><br>
-                <div class="used">콘텐츠를 후원합니다.</div><br>
-            </div>
-            <div class="Btn">
-                <button class="cancelBtn">취소</button>
-                <button class="confrimBtn" type=submit>확인</button>
-            </div>
 
-        </form>
+
+
+    <div id="popup">
+        <div class="content">
+            <!-- B : 보유새싹 계산 -->
+            <div class="how_much">
+                내 보유새싹 : {{user.cash}}잎
+            </div><br>
+            <form>
+                {% csrf_token %}
+                <div class="details">
+                    <!-- B : 사용한 새싹 계산 -->
+                    <div class="used">새싹 <input type="hidden" name="money" id="money"><span id="money_display"></span>잎을
+                        사용하여</div>
+                    <br>
+                    <!-- B : 게시글 제목 가져오기 -->
+                    <div class="title">{{blog_detail.title}}</div><br>
+                    <div class="used">콘텐츠를 후원합니다.</div><br>
+                </div>
+                <div class="Btn">
+                    <button class="cancelBtn">취소</button>
+                    <button class="confrimBtn" type=submit>확인</button>
+                </div>
+
+            </form>
+        </div>
     </div>
+
 </div>
 
-<!-- js -->
-
+<!-- popup js -->
 <script>
-    // random color play
+    const sponBtn = document.getElementById("spon_btn") //후원하기 버튼
 
-    const adBox = document.getElementById("adBox")
 
-    const colors = [
-        "#ef5777",
-        "#575fcf",
-        "#4bcffa",
-        "#34e7e4",
-        "#0be881",
-        "#f53b57",
-        "#3c40c6",
-        "#0fbcf9",
-        "#00d8d6",
-        "#05c46b",
-        "#ffc048",
-        "#ffdd59",
-        "#ff5e57",
-        "#d2dae2",
-        "#485460",
-        "#ffa801",
-        "#ffd32a",
-        "#ff3f34"
-    ];
+    const closeBtn = document.querySelector(".Btn") // 취소, 확인 버튼
 
-    setInterval(() => {
-        const randomColor = colors[Math.floor(Math.random() * colors.length)];
-        adBox.style.background = `${randomColor}`;
-    }, 2000);
+    const modal = document.querySelector('.modal');
+
+    sponBtn.addEventListener("click", () => {
+        modal.style.display = 'block';
+    });
 </script>
 
 
+
+
+<!-- popup css -->
+
+<style>
+    /* 팝업 */
+    .content {
+        width: 489px;
+        height: 260px;
+        background-color: black;
+        text-align: center;
+        color: white;
+        padding-top: 56px;
+        margin: 307px 0 0 480px;
+
+        background: rgba(10, 10, 10, 0.95);
+        border: 1px solid #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+
+    }
+
+    .letter {
+        justify-content: center;
+        padding-bottom: 27px;
+        border-bottom: 1px solid white;
+    }
+
+    .top {
+        margin-bottom: 27px;
+    }
+
+    .how_much {
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 25px;
+        line-height: 34px;
+        text-align: center;
+        color: rgba(204, 249, 197, 0.95);
+    }
+
+
+    .used {
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 25px;
+        line-height: 34px;
+        text-align: center;
+
+    }
+
+    .title {
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 25px;
+        line-height: 34px;
+        text-align: center;
+    }
+
+
+    .Btn {
+        box-sizing: border-box;
+        border-width: 1px 0px 1px 1px;
+        border-style: solid;
+        border-color: #FFFFFF;
+        justify-content: center;
+        border-bottom: none;
+        border-left: none;
+    }
+
+    .cancelBtn {
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 27px;
+        line-height: 37px;
+        text-align: center;
+        border: none;
+        border-right: 1px solid white;
+        background-color: transparent;
+        color: white;
+        /* padding-right: 100px; */
+        padding: 15px 100px 15px 0;
+    }
+
+    .confrimBtn {
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 27px;
+        line-height: 37px;
+        text-align: center;
+        border: none;
+        background-color: transparent;
+        color: rgba(204, 249, 197, 0.95);
+        /* padding-left: 100px; */
+        padding: 15px 0 15px 100px;
+    }
+
+    /* 후ㅣ영 추가 */
+
+
+    .modal {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        display: none;
+
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+</style>
+
+<!-- ad box js  -->
+
+<script>
+    /* // random color play */
+
+    const adBox = document.getElementById("adBox")
+    const adphoto = [
+        "pic1.png",
+        "pic2.png",
+        "pic3.png",
+        "pic4.png",
+        "pic5.png",
+        "pic6.png",
+        "pic7.png",
+        "pic8.png",
+        "pic9.png",
+    ];
+
+    setInterval(() => {
+        const randomAdphoto = adphoto[Math.floor(Math.random() * adphoto.length)];
+        adBox.src = `/static/img/ad/${randomAdphoto}`;
+    }, 1500);
+</script>
 
 {% endblock %}

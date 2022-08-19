@@ -87,15 +87,22 @@ body {
 }
 
 
-.box_img {
+.box_img  {
     height: 100px;
     width: 100px;
-    background-color: white;
     border: 1px solid black;
     border-radius: 50px;
     margin-right: 20px;
 }
 
+
+.box_profile_img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-repeat: no-repeat;
+}
 .box_text_wrap {
 
     margin-top: 10px;
@@ -141,7 +148,7 @@ body {
     padding-left: 50px;
 }
 
-.contents_location {}
+
 
 .box_info_icon_wrap {
     display: flex;
@@ -205,6 +212,7 @@ body {
     object-fit: cover;
     margin-top: 0px;
     background-repeat: no-repeat;
+    background-image: url("");
 }
 
 

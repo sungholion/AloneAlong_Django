@@ -40,24 +40,40 @@
 
     <div class="header-col2">
       <a href="{%url 'index' %}">혼밥</a>
-      <a href="honsul.html">혼술</a>
-      <a href="/html/home/honcafe.html">혼카페</a>
-      <a href="honmap.html">혼맵</a>
+      <a href="">혼술</a>
+      <a href="">혼카페</a>
+      <a href="{% url 'honmap' %}">혼맵</a>
+      <a href="{% url 'login' %}">로그인</a>
+      <a href="{% url 'logout' %}">로그아웃</a>
     </div>
 
     <span class="header-col3">
-      <img src="/static/img/saessak.png" alt="" />
+      <a href="{% url 'sponsor_status' %}"><img src="/static/img/saessak.png" alt="" /></a>
       <img src="/static/img/alarm.png" alt="" />
-      <a href="{% url 'myprofile_fin'%}">
-        <div id="mypage"><i class="fa-solid fa-user fa-lg"></i></div>
-      </a>
+      
+      {% if user.is_authenticated %}
+         <a href="{% url 'myprofile_fin'%}">
+          <div id="mypage">
+          {% if user.profilePhoto %}
+          <img src="{{user.profilePhoto.url}}" alt="">
+          {% endif %}
+      
+        </div>
+</a>
+    {% else %}
+    <a href="{% url 'login' %}">
+      <div id="mypage">
+        <i class="fa-solid fa-user fa-lg">
+        </i></div> 
+    </a>
+    {% endif %}
     </span>
   </header>
   {% block body %}
-  <!-- 이 부분에 각 페이지마다 기능들이 들어감. -->
-  {% endblock %}
-  <!--  icon 적용 -->
-  <script src="https://kit.fontawesome.com/73b35ca8d6.js" crossorigin="anonymous"></script>
+  <!-- <!— 이 부분에 각 페이지마다 기능들이 들어감. —> -->
+    {% endblock %}
+    <!-- <!— icon 적용 —> -->
+      <script src="https://kit.fontawesome.com/73b35ca8d6.js" crossorigin="anonymous"></script>
 
 
 </body>
