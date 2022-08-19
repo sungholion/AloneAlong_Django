@@ -106,7 +106,9 @@ a {
 .header-col3 img {
     width: 45px;
     height: 45px;
-    margin-left: 10px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: no-repeat;
 }
 
 #mypage {
